@@ -5,5 +5,7 @@ module dam.JosantVarona {
     requires java.sql;
 
     opens dam.JosantVarona to javafx.fxml;
+    opens dam.JosantVarona.Model.Connection to java.xml.bind;
+
     exports dam.JosantVarona;
 }
