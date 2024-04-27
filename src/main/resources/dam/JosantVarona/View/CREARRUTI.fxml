@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ToolBar layoutX="-5.0" prefHeight="400.0" prefWidth="184.0" style="-fx-background-color: BLUE;">
+         <items>
+            <Label prefHeight="43.0" prefWidth="162.0" text="RUTINA" textFill="#fff9f9">
+               <effect>
+                  <InnerShadow height="39.72" radius="14.68">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </InnerShadow>
+               </effect>
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+         </items>
+      </ToolBar>
+      <TextField layoutX="225.0" layoutY="37.0" promptText="nombre" />
+      <SplitMenuButton layoutX="225.0" layoutY="77.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="Dia">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Lunes" />
+          <MenuItem mnemonicParsing="false" text="Martes" />
+            <MenuItem mnemonicParsing="false" text="Miercoles" />
+            <MenuItem mnemonicParsing="false" text="Jueves" />
+            <MenuItem mnemonicParsing="false" text="Viernes" />
+            <MenuItem mnemonicParsing="false" text="Sabado" />
+            <MenuItem mnemonicParsing="false" text="Domingo" />
+        </items>
+      </SplitMenuButton>
+      <TableView layoutX="225.0" layoutY="117.0" prefHeight="200.0" prefWidth="267.0">
+        <columns>
+          <TableColumn prefWidth="199.19993591308594" text="EJERCICIO" />
+          <TableColumn prefWidth="67.2000732421875" text="AÑADIR" />
+        </columns>
+      </TableView>
+      <Button layoutX="402.0" layoutY="40.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="149.0" text="CREAR  EJERCICIO" />
+      <Button layoutX="225.0" layoutY="335.0" mnemonicParsing="false" text="CREAR RUTINA" />
+   </children>
+</Pane>

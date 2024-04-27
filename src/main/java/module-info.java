@@ -8,4 +8,7 @@ module dam.JosantVarona {
     opens dam.JosantVarona.Model.Connection to java.xml.bind;
 
     exports dam.JosantVarona;
+    exports dam.JosantVarona.View;
+    opens dam.JosantVarona.View to javafx.fxml;
+
 }

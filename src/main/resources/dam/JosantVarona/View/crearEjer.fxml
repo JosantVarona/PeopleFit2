@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane prefHeight="97.0" prefWidth="600.0" style="-fx-background-color: black;">
+         <children>
+            <Label layoutX="213.0" layoutY="23.0" prefHeight="51.0" prefWidth="173.0" text="Ejercicio" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="42.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <HBox prefHeight="116.0" prefWidth="600.0">
+         <children>
+            <TextField />
+            <Label prefHeight="26.0" prefWidth="117.0" text="Nombre del Ejercicio" />
+            <Spinner prefHeight="26.0" prefWidth="116.0" />
+            <Label prefHeight="26.0" prefWidth="60.0" text="nº Series" />
+            <Spinner prefHeight="26.0" prefWidth="103.0" />
+            <Label prefHeight="26.0" prefWidth="67.0" text="nº Repes" />
+         </children>
+      </HBox>
+      <HBox prefHeight="186.0" prefWidth="600.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="63.0" prefWidth="137.0" text="Crear" />
+            <ImageView fitHeight="200.0" fitWidth="237.0">
+               <image>
+                  <Image url="@Ejercicio.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+   </children>
+</VBox>

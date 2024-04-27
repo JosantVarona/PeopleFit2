@@ -5,15 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87e8672d-133a-484a-adb5-5086a7365575" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/Connection/ConnectProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/Connection/ConnectionMariaDB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Utils/XMLManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/test/LoadConnect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/test/TestSave.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/DAO/DAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/DAO/EjercicioDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/DAO/RutinaDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/DAO/UsuarioDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Play.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/test/insert1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/test/insertR.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/test/testSelect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/CREARRUTI.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/Ejercicio.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/PhUserCircleFill.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/REGISTER.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/crearEjer.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/gimnasio.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/login.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/logo.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/Entity/Ejercicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/Entity/Ejercicio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/Entity/Rutina.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/Entity/Rutina.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/Entity/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/Entity/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/PrimaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/PrimaryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/SecondaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/SecondaryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/primary.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/primary.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/secondary.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/secondary.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +41,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -39,23 +58,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.App.executor": "Run",
-    "Application.LoadConnect.executor": "Run",
-    "Application.TestSave.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.App.executor&quot;: &quot;Run&quot;,
+    &quot;Application.LoadConnect.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestSave.executor&quot;: &quot;Run&quot;,
+    &quot;Application.insert1.executor&quot;: &quot;Run&quot;,
+    &quot;Application.insertR.executor&quot;: &quot;Run&quot;,
+    &quot;Application.testSelect.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;rama1&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/josant/IdeaProjects/PeopleFit2/src/main/resources/dam/JosantVarona/View&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\josant\IdeaProjects\PeopleFit2\src\main\resources\dam\JosantVarona\View" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\josant\IdeaProjects\PeopleFit2\src\main\resources\dam\JosantVarona\View" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="dam.JosantVarona.View" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -74,7 +108,22 @@
       <workItem from="1713769207833" duration="125000" />
       <workItem from="1713769348916" duration="249000" />
       <workItem from="1713786239146" duration="624000" />
-      <workItem from="1713797209011" duration="2171000" />
+      <workItem from="1713797209011" duration="2703000" />
+      <workItem from="1713818644501" duration="279000" />
+      <workItem from="1713854693649" duration="407000" />
+      <workItem from="1713857535850" duration="6390000" />
+      <workItem from="1713881060499" duration="4528000" />
+      <workItem from="1713896714174" duration="2619000" />
+      <workItem from="1713904673841" duration="3496000" />
+      <workItem from="1713939870758" duration="11110000" />
+      <workItem from="1713972915075" duration="1985000" />
+      <workItem from="1713987485998" duration="4830000" />
+      <workItem from="1714026794388" duration="15121000" />
+      <workItem from="1714057055921" duration="3378000" />
+      <workItem from="1714112748802" duration="11804000" />
+      <workItem from="1714130445207" duration="53000" />
+      <workItem from="1714208458642" duration="11626000" />
+      <workItem from="1714232458497" duration="1832000" />
     </task>
     <servers />
   </component>

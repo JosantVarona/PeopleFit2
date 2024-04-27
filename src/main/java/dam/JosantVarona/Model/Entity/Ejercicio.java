@@ -3,13 +3,18 @@ package dam.JosantVarona.Model.Entity;
 import java.util.Objects;
 
 public class Ejercicio {
-    private int id;
+    private Integer id;
     private int serie;
     private int repes;
     private String name;
 
-    public Ejercicio(int id, int serie, int repes, String name) {
+    public Ejercicio(Integer id, int serie, int repes, String name) {
         this.id = id;
+        this.serie = serie;
+        this.repes = repes;
+        this.name = name;
+    }
+    public Ejercicio( Integer serie, int repes, String name) {
         this.serie = serie;
         this.repes = repes;
         this.name = name;
@@ -18,11 +23,11 @@ public class Ejercicio {
 
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
