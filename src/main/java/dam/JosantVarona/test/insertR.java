@@ -17,8 +17,12 @@ public class insertR {
         Usuario u = us.findByid(1);
         Rutina rutina = new Rutina(Dia.Lunes,"Brazo", new ArrayList<>(),u);
         EjercicioDAO e= new EjercicioDAO();
+        EjercicioDAO e2= new EjercicioDAO();
         Ejercicio ej = e.findByid(1);
+        Ejercicio ej2 = e2.findByid(2);
         rutina.addEjercicio(ej);
+        rutina.addEjercicio(ej2);
+        System.out.println(rutina.getEjercicios());
         r.save(rutina);
         System.out.println(u);
 

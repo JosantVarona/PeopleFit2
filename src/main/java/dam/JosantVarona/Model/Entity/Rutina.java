@@ -76,10 +76,10 @@ public class Rutina {
     }
     public void addEjercicio(Ejercicio ejercicio){
         if (ejercicios == null) ejercicios = new ArrayList<>();
-        if (!ejercicios.contains(ejercicio))ejercicios.add(ejercicio);
+        if (!ejercicios.contains(ejercicio)) ejercicios.add(ejercicio);
     }
     public void removerEjercicio(Ejercicio ejercicio){
-        if (ejercicios!=null)ejercicios.remove(ejercicio);
+        if (ejercicios!=null) ejercicios.remove(ejercicio);
     }
     public Ejercicio getEjericico(Ejercicio ejercicio){
         Ejercicio result=null;

@@ -4,16 +4,13 @@ import dam.JosantVarona.Model.Connection.ConnectionMariaDB;
 import dam.JosantVarona.Model.Entity.Ejercicio;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.List;
 
 public class EjercicioDAO implements DAO<Ejercicio, Integer>{
     private static final String INSERT = "INSERT INTO ejercicio(serie,repes,name) VALUES (?,?,?)";
     private static final String FINDBNAME = "SELECT e.name,e.serie,e.repes,e.id FROM ejercicio AS e WHERE e.name=?";
-    private static final String FINDID = "SELECT e.id,e.name,e.serie,e.repes FROM ejercicio AS e WHERE e.id";
+    private static final String FINDID = "SELECT e.id,e.name,e.serie,e.repes FROM ejercicio AS e WHERE e.id=?";
     private static final String UPDATE = "UPDATE ejercico SET serie=?,repes=? WHERE name=?";
     private static final String DELETE = "DELETE FROM ejercicio WHERE id=?";
 
@@ -22,20 +19,22 @@ public class EjercicioDAO implements DAO<Ejercicio, Integer>{
         conn = ConnectionMariaDB.getConnection();
     }
     @Override
-    public Ejercicio save(Ejercicio entity) { // Hay que cambiarlo
+    public Ejercicio save(Ejercicio entity) {
         Ejercicio result = entity;
             if (entity!=null){
-               Integer id = entity.getId();
-                if(id!= 0){
-                    Ejercicio inDatabase = findByid(id);
-                    if (inDatabase == null){
+
+
+            if (entity.getId()==null){
                         //insert
-                        try(PreparedStatement pst = conn.prepareStatement(INSERT)){
-                            pst.setInt(1,entity.getId());
-                            pst.setInt(2,entity.getSerie());
-                            pst.setInt(3,entity.getRepes());
-                            pst.setString(4,entity.getName());
+                        try(PreparedStatement pst = conn.prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS)){
+                            pst.setInt(1,entity.getSerie());
+                            pst.setInt(2,entity.getRepes());
+                            pst.setString(3,entity.getName());
                             pst.executeUpdate();
+                            ResultSet res = pst.getGeneratedKeys();
+                            if(res.next()){
+                                entity.setId(res.getInt(1));
+                            }
                         } catch (SQLException e) {
                             e.printStackTrace();
                         }
@@ -48,9 +47,7 @@ public class EjercicioDAO implements DAO<Ejercicio, Integer>{
                         } catch (SQLException e) {
                             e.printStackTrace();
                         }
-                    }
-                }
-            }
+                    }}
         return result;
     }
 

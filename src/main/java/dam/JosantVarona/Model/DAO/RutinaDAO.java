@@ -20,7 +20,6 @@ public class RutinaDAO implements DAO<Rutina,Integer> {
     private static final String DELETE = "DELETE FROM rutina WHERE id=?";
     private static final String INSERTEJ = "INSERT INTO pertenece (ID_rutina,ID_ejercicio) VALUES(?,?)";
     private static final String DELETEALLEJ = "DELETE FROM pertenece WHERE ID_rutina=?";
-    /*private static final String CREATEID = "SELECT r.id FROM rutina";*/
     private static final String FINDEJER ="SELECT r.Descripcion, e.* FROM rutina r, ejercicio e, pertenece p WHERE r.id = p.ID_rutina AND e.id = p.ID_ejercicio";
 
 
@@ -59,12 +58,16 @@ public class RutinaDAO implements DAO<Rutina,Integer> {
                     //UPDATE
                     //Actualizar los datos propios de la rutina
                     try(PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(UPDATE)) {
+                        pst.setDate(1, Date.valueOf(entity.getFecha()));
+                        pst.setInt(2,entity.getId());
+                        pst.executeUpdate();
+
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
                     //por hacer aun
                     //Actualizar los ejercicios
-                    asociaEjercicios(entity);
+            asociaEjercicios(entity);
                 }
 
         return result;
@@ -136,25 +139,6 @@ public class RutinaDAO implements DAO<Rutina,Integer> {
     public void close() throws IOException {
 
     }
-    /*private List<Integer> Createid(){
-        List<Integer> result = new ArrayList<>();
-        try (PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(CREATEID)) {
-
-            ResultSet res = pst.executeQuery();
-            while (res.next()) {
-                Rutina r = new Rutina();
-                Integer i;
-                r.setId(res.getInt("id"));
-                i= r.getId();
-
-                result.add(i);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return result;
-    }*/
 
     public List<Ejercicio> FindAllEjer() {
         List<Ejercicio> result = new ArrayList<>();
