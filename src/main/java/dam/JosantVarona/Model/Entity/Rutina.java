@@ -118,7 +118,7 @@ public class Rutina {
                 ", dia=" + dia +
                 ", descripcion='" + descripcion + '\'' +
                 ", fecha=" + fecha +
-                ", usuario=" + usuario +
+                ", usuario=" + usuario.getName() +
                 ", ejercicios=" + ejercicios +
                 '}';
     }

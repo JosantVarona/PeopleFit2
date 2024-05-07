@@ -6,8 +6,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dam.JosantVarona.View.PricipalController">
    <top>
       <ToolBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: blue;" BorderPane.alignment="CENTER">
         <items>
@@ -16,15 +15,15 @@
                   <Image url="@PhUserCircleFill.png" />
                </image>
             </ImageView>
-          <Button mnemonicParsing="false" text="MI PERFIL" />
+          <Button fx:id="perfil" mnemonicParsing="false" onAction="#goToPerfil" text="MI PERFIL" />
         </items>
       </ToolBar>
    </top>
    <left>
-      <Button mnemonicParsing="false" prefHeight="58.0" prefWidth="138.0" text="MOSTRAR RUTINA" BorderPane.alignment="CENTER" />
+      <Button fx:id="Modify" mnemonicParsing="false" onAction="#goToModify" prefHeight="58.0" prefWidth="138.0" text="MODIFICAR RUTINA" BorderPane.alignment="CENTER" />
    </left>
    <right>
-      <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="129.0" text="CREAR RUTINA" BorderPane.alignment="CENTER" />
+      <Button fx:id="Crear" mnemonicParsing="false" onAction="#goToCrear" prefHeight="54.0" prefWidth="129.0" text="CREAR RUTINA" BorderPane.alignment="CENTER" />
    </right>
    <center>
       <ImageView fitHeight="200.0" fitWidth="200.0" BorderPane.alignment="CENTER">

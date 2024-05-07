@@ -5,6 +5,8 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Usuario {
     private Integer id;
@@ -19,6 +21,11 @@ public class Usuario {
         setPass(pass);
         this.name = name;
         this.rutinas = rutinas;
+    }
+    public Usuario(String cuenta,String pass,String name){
+        this.cuenta = cuenta;
+        setPass(pass);
+        this.name = name;
     }
 
     public Usuario(){
@@ -116,6 +123,22 @@ public class Usuario {
         }
         return comp;
     }*/
-
-
+    public static boolean validarCorreo(String gmail) {
+        boolean result = false;
+        Pattern gmailPattern = Pattern.compile("[A-Za-z0-9]+@+(gmail|hotmail)\\.(com|es)");
+        Matcher gmailMatcher = gmailPattern.matcher(gmail);
+        if (gmailMatcher.matches()) {
+            result = true;
+        }
+        return result;
+    }
+    public static boolean validarnombre(String name){
+        boolean result = false;
+        Pattern namePattern = Pattern.compile("[A-Za-z0-9]+");
+        Matcher nameMatcher = namePattern.matcher(name);
+        if (nameMatcher.matches()) {
+            result = true;
+        }
+        return result;
+    }
 }

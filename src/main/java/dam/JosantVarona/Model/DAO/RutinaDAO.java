@@ -20,7 +20,8 @@ public class RutinaDAO implements DAO<Rutina,Integer> {
     private static final String DELETE = "DELETE FROM rutina WHERE id=?";
     private static final String INSERTEJ = "INSERT INTO pertenece (ID_rutina,ID_ejercicio) VALUES(?,?)";
     private static final String DELETEALLEJ = "DELETE FROM pertenece WHERE ID_rutina=?";
-    private static final String FINDEJER ="SELECT r.Descripcion, e.* FROM rutina r, ejercicio e, pertenece p WHERE r.id = p.ID_rutina AND e.id = p.ID_ejercicio";
+    private static final String FINDBYUSUARIO = "SELECT r.id,r.Dia,r.Descripcion,r.Fecha,ID_usuario FROM rutina AS r WHERE r.id_usuario=?";
+    /*private static final String FINDEJER ="SELECT r.Descripcion, e.* FROM rutina r, ejercicio e, pertenece p WHERE r.id = p.ID_rutina AND e.id = p.ID_ejercicio";*/
 
 
     private Connection conn;
@@ -58,7 +59,7 @@ public class RutinaDAO implements DAO<Rutina,Integer> {
                     //UPDATE
                     //Actualizar los datos propios de la rutina
                     try(PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(UPDATE)) {
-                        pst.setDate(1, Date.valueOf(entity.getFecha()));
+                        pst.setString(1,entity.getDia().name());
                         pst.setInt(2,entity.getId());
                         pst.executeUpdate();
 
@@ -155,6 +156,28 @@ public class RutinaDAO implements DAO<Rutina,Integer> {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+        return result;
+    }
+    public List<Rutina> findByUsuario (Usuario u){
+        List<Rutina> result = new ArrayList<>();
+        if(u==null || u.getId()==null){
+            try(PreparedStatement pst = conn.prepareStatement(FINDBYUSUARIO)){
+                pst.setInt(1,u.getId());
+                try(ResultSet res = pst.executeQuery()){
+                    while (res.next()){
+                        Rutina r = new Rutina();
+                        r.setId(res.getInt("id"));
+                        r.setDia(Dia.valueOf(res.getString("Dia")));
+                        r.setDescripcion(res.getString("Descripcion"));
+                        r.setFecha(res.getDate("Fecha").toLocalDate());
+                        r.setUsuario(u);
+                        result.add(r);
+                    }
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
         return result;
     }

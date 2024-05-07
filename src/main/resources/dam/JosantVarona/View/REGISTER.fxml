@@ -7,17 +7,24 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #011f5d;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #011f5d;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dam.JosantVarona.View.RegsController">
    <children>
       <ImageView fitHeight="133.0" fitWidth="128.0" layoutX="236.0" layoutY="29.0">
          <image>
             <Image url="@logo.jpg" />
          </image>
       </ImageView>
-      <TextField layoutX="226.0" layoutY="212.0" promptText="cuenta" />
-      <TextField layoutX="226.0" layoutY="249.0" promptText="contraseña" />
+      <TextField fx:id="Textcorreo" layoutX="226.0" layoutY="212.0" onAction="#RegocerDatos" promptText="cuenta" />
+      <TextField fx:id="Textpass" layoutX="226.0" layoutY="249.0" onAction="#RegocerDatos" promptText="contraseña" />
       <Label layoutX="263.0" layoutY="183.0" prefHeight="17.0" prefWidth="128.0" text="REGISTREARSE" textAlignment="CENTER" textFill="WHITE" />
-      <TextField layoutX="226.0" layoutY="291.0" promptText="nombre usuario" />
-      <Button layoutX="274.0" layoutY="340.0" mnemonicParsing="false" text="Enviar" />
+      <TextField fx:id="Textname" layoutX="226.0" layoutY="291.0" onAction="#RegocerDatos" promptText="nombre usuario" />
+      <Button layoutX="274.0" layoutY="340.0" mnemonicParsing="false" onAction="#guardarDatos" text="Enviar" />
+      <ImageView fx:id="flecha" fitHeight="51.0" fitWidth="60.0" layoutX="526.0" layoutY="14.0" onMouseClicked="#goToInicio">
+         <image>
+            <Image url="@flecha.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="381.0" layoutY="253.0" prefHeight="17.0" prefWidth="128.0" text="9 caracteres minimo" textAlignment="CENTER" textFill="WHITE" />
+      <Label layoutX="381.0" layoutY="295.0" prefHeight="17.0" prefWidth="128.0" text="9 caracteres minimo" textAlignment="CENTER" textFill="WHITE" />
    </children>
 </Pane>

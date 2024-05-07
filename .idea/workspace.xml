@@ -5,13 +5,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87e8672d-133a-484a-adb5-5086a7365575" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/AppController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/ContollerLayaut.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/Controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/EjercicosController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/InicioController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/MrutinaController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/PerfilController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/PricipalController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/RegsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/RutinaController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/Scenes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/View.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/test/TestSe.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/test/inserUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/test/testinsR.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/Modify.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/Principal.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/flecha.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/flechanegra.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/layaut.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/DAO/EjercicioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/DAO/EjercicioDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/DAO/RutinaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/DAO/RutinaDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/DAO/UsuarioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/DAO/UsuarioDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/Entity/Rutina.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/Entity/Rutina.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/test/insert1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/test/insert1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/Entity/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/Entity/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/PrimaryController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/SecondaryController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/test/insertR.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/test/insertR.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/test/testSelect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/test/testSelect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/CREARRUTI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/CREARRUTI.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/REGISTER.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/REGISTER.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/crearEjer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/crearEjer.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/primary.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/INICIO.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/secondary.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/PERFIL.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,12 +52,16 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -43,9 +77,12 @@
     &quot;Application.App.executor&quot;: &quot;Run&quot;,
     &quot;Application.LoadConnect.executor&quot;: &quot;Run&quot;,
     &quot;Application.TestSave.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestSe.executor&quot;: &quot;Run&quot;,
+    &quot;Application.inserUser.executor&quot;: &quot;Run&quot;,
     &quot;Application.insert1.executor&quot;: &quot;Run&quot;,
     &quot;Application.insertR.executor&quot;: &quot;Run&quot;,
     &quot;Application.testSelect.executor&quot;: &quot;Run&quot;,
+    &quot;Application.testinsR.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;rama1&quot;,
@@ -56,6 +93,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -107,11 +145,44 @@
       <workItem from="1714379600613" duration="4442000" />
       <workItem from="1714391040733" duration="3932000" />
       <workItem from="1714423280857" duration="1733000" />
-      <workItem from="1714460163100" duration="400000" />
+      <workItem from="1714460163100" duration="594000" />
+      <workItem from="1714462404661" duration="3570000" />
+      <workItem from="1714466300016" duration="3371000" />
+      <workItem from="1714473399665" duration="87000" />
+      <workItem from="1714474040979" duration="127000" />
+      <workItem from="1714490726360" duration="876000" />
+      <workItem from="1714508806987" duration="2263000" />
+      <workItem from="1714511088335" duration="1002000" />
+      <workItem from="1714575296751" duration="4728000" />
+      <workItem from="1714634101492" duration="1958000" />
+      <workItem from="1714638974576" duration="6861000" />
+      <workItem from="1714732041403" duration="3625000" />
+      <workItem from="1714976908274" duration="10701000" />
+      <workItem from="1715006640837" duration="2732000" />
+      <workItem from="1715027427603" duration="573000" />
+      <workItem from="1715063196502" duration="10937000" />
+      <workItem from="1715092374259" duration="1733000" />
+      <workItem from="1715114709844" duration="1382000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/DAO/UsuarioDAO.java</url>
+          <line>120</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/RegsController.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

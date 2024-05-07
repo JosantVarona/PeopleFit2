@@ -11,7 +11,7 @@ public class testSelect {
         Ejercicio e = eDAo.findByid(1);
         System.out.println(e);
         UsuarioDAO uDAO= new UsuarioDAO();
-        System.out.println(uDAO.findByid(1));
+
 
     }
 }

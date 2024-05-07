@@ -9,11 +9,13 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dam.JosantVarona.View.RutinaController">
    <children>
       <ToolBar layoutX="-5.0" prefHeight="400.0" prefWidth="184.0" style="-fx-background-color: BLUE;">
          <items>
@@ -49,7 +51,12 @@
           <TableColumn prefWidth="67.2000732421875" text="AÑADIR" />
         </columns>
       </TableView>
-      <Button layoutX="402.0" layoutY="40.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="149.0" text="CREAR  EJERCICIO" />
+      <Button fx:id="Ejercicios" layoutX="402.0" layoutY="40.0" mnemonicParsing="false" onMouseClicked="#gotoEjercico" prefHeight="46.0" prefWidth="149.0" text="CREAR  EJERCICIO" />
       <Button layoutX="225.0" layoutY="335.0" mnemonicParsing="false" text="CREAR RUTINA" />
+      <ImageView fx:id="flecha" fitHeight="71.0" fitWidth="74.0" layoutX="512.0" layoutY="312.0" onMouseClicked="#gotoMain">
+         <image>
+            <Image url="@flechanegra.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>

@@ -7,16 +7,21 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #011f5d;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #011f5d;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dam.JosantVarona.View.LoginController">
    <children>
-      <ImageView fitHeight="133.0" fitWidth="128.0" layoutX="236.0" layoutY="29.0">
+      <ImageView fitHeight="133.0" fitWidth="128.0" layoutX="421.0" layoutY="113.0">
          <image>
             <Image url="@logo.jpg" />
          </image>
       </ImageView>
-      <TextField layoutX="226.0" layoutY="217.0" promptText="cuenta" />
-      <TextField layoutX="226.0" layoutY="272.0" promptText="contraseña" />
-      <Label layoutX="263.0" layoutY="183.0" prefHeight="17.0" prefWidth="128.0" text="INICIAR SESION" textAlignment="CENTER" textFill="WHITE" />
-      <Button layoutX="274.0" layoutY="332.0" mnemonicParsing="false" text="Enter" />
+      <TextField fx:id="Texcuenta" layoutX="410.0" layoutY="280.0" promptText="cuenta" />
+      <TextField fx:id="Texpass" layoutX="410.0" layoutY="335.0" promptText="contraseña" />
+      <Label layoutX="437.0" layoutY="246.0" prefHeight="17.0" prefWidth="128.0" text="INICIAR SESION" textAlignment="CENTER" textFill="WHITE" />
+      <Button layoutX="458.0" layoutY="395.0" mnemonicParsing="false" onAction="#RecogerDatos" onMouseClicked="#controlLogin" text="Enter" />
+      <ImageView fx:id="flecha" fitHeight="62.0" fitWidth="66.0" layoutX="679.0" layoutY="72.0" onMouseClicked="#gotoInicio">
+         <image>
+            <Image url="@flecha.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>

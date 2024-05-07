@@ -11,8 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dam.JosantVarona.View.EjercicosController">
    <children>
       <Pane prefHeight="97.0" prefWidth="600.0" style="-fx-background-color: black;">
          <children>
@@ -23,7 +22,7 @@
             </Label>
          </children>
       </Pane>
-      <HBox prefHeight="116.0" prefWidth="600.0">
+      <HBox prefHeight="53.0" prefWidth="600.0">
          <children>
             <TextField />
             <Label prefHeight="26.0" prefWidth="117.0" text="Nombre del Ejercicio" />
@@ -39,6 +38,11 @@
             <ImageView fitHeight="200.0" fitWidth="237.0">
                <image>
                   <Image url="@Ejercicio.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="volver" fitHeight="79.0" fitWidth="78.0" onMouseClicked="#gotoRutina">
+               <image>
+                  <Image url="@flechanegra.png" />
                </image>
             </ImageView>
          </children>
