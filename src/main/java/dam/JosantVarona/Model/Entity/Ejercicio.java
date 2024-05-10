@@ -4,23 +4,25 @@ import java.util.Objects;
 
 public class Ejercicio {
     private Integer id;
-    private int serie;
-    private int repes;
+    private Integer serie;
+    private Integer repes;
     private String name;
-
-    public Ejercicio(Integer id, int serie, int repes, String name) {
+    private Boolean anadir;
+    public Ejercicio(Integer id, Integer serie, Integer repes, String name) {
         this.id = id;
         this.serie = serie;
         this.repes = repes;
         this.name = name;
+        this.anadir = false;
     }
-    public Ejercicio( Integer serie, int repes, String name) {
+    public Ejercicio( Integer serie, Integer repes, String name) {
         this.serie = serie;
         this.repes = repes;
         this.name = name;
+        this.anadir = false;
     }
     public Ejercicio(){
-
+        this.anadir = false;
     }
 
     public Integer getId() {
@@ -31,19 +33,19 @@ public class Ejercicio {
         this.id = id;
     }
 
-    public int getSerie() {
+    public Integer getSerie() {
         return serie;
     }
 
-    public void setSerie(int serie) {
+    public void setSerie(Integer serie) {
         this.serie = serie;
     }
 
-    public int getRepes() {
+    public Integer getRepes() {
         return repes;
     }
 
-    public void setRepes(int repes) {
+    public void setRepes(Integer repes) {
         this.repes = repes;
     }
 
@@ -53,6 +55,14 @@ public class Ejercicio {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Boolean getAnadir() {
+        return anadir;
+    }
+
+    public void setAnadir(Boolean anadir) {
+        this.anadir = anadir;
     }
 
     @Override

@@ -11,11 +11,11 @@ import java.util.ResourceBundle;
 
 public class PricipalController extends Controller implements Initializable {
     @FXML
-    Button perfil;
+    private Button perfil;
     @FXML
-    Button Crear;
+    private Button Crear;
     @FXML
-    Button Modify;
+    private Button Modify;
     @Override
     public void onOpen(Object input) throws IOException {
 

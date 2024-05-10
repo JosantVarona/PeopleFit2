@@ -5,43 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87e8672d-133a-484a-adb5-5086a7365575" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/AppController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/ContollerLayaut.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/EjercicosController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/InicioController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/MrutinaController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/PerfilController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/PricipalController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/RegsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/RutinaController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/Scenes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/View.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/test/TestSe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/test/inserUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/test/testinsR.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/Modify.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/Principal.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/flecha.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/flechanegra.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/layaut.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/Entity/UserSesion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/crearEjer_copy.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/DAO/RutinaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/DAO/RutinaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/DAO/UsuarioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/DAO/UsuarioDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/Entity/Ejercicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/Entity/Ejercicio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/Entity/Rutina.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/Entity/Rutina.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/Entity/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/Entity/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/PrimaryController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/SecondaryController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/test/insertR.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/test/insertR.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/test/testSelect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/test/testSelect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/Enum/Dia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/Enum/Dia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/AppController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/EjercicosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/EjercicosController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/PricipalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/PricipalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/RegsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/RegsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/RutinaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/RutinaController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/CREARRUTI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/CREARRUTI.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/REGISTER.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/REGISTER.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/crearEjer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/crearEjer.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/primary.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/INICIO.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/secondary.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/PERFIL.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,31 +50,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.App.executor&quot;: &quot;Run&quot;,
-    &quot;Application.LoadConnect.executor&quot;: &quot;Run&quot;,
-    &quot;Application.TestSave.executor&quot;: &quot;Run&quot;,
-    &quot;Application.TestSe.executor&quot;: &quot;Run&quot;,
-    &quot;Application.inserUser.executor&quot;: &quot;Run&quot;,
-    &quot;Application.insert1.executor&quot;: &quot;Run&quot;,
-    &quot;Application.insertR.executor&quot;: &quot;Run&quot;,
-    &quot;Application.testSelect.executor&quot;: &quot;Run&quot;,
-    &quot;Application.testinsR.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;rama1&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/josant/IdeaProjects/PeopleFit2/src/main/resources/dam/JosantVarona/View&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.App.executor": "Run",
+    "Application.LoadConnect.executor": "Run",
+    "Application.TestSave.executor": "Run",
+    "Application.TestSe.executor": "Run",
+    "Application.inserUser.executor": "Run",
+    "Application.insert1.executor": "Run",
+    "Application.insertR.executor": "Run",
+    "Application.testSelect.executor": "Run",
+    "Application.testinsR.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "rama1",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/josant/IdeaProjects/PeopleFit2/src/main/resources/dam/JosantVarona/View",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\josant\IdeaProjects\PeopleFit2\src\main\resources\dam\JosantVarona\View" />
@@ -163,6 +141,15 @@
       <workItem from="1715063196502" duration="10937000" />
       <workItem from="1715092374259" duration="1733000" />
       <workItem from="1715114709844" duration="1382000" />
+      <workItem from="1715116114139" duration="134000" />
+      <workItem from="1715155294676" duration="5139000" />
+      <workItem from="1715179547166" duration="4453000" />
+      <workItem from="1715196699273" duration="4682000" />
+      <workItem from="1715236830436" duration="14042000" />
+      <workItem from="1715256156967" duration="422000" />
+      <workItem from="1715265181899" duration="5510000" />
+      <workItem from="1715289491802" duration="3710000" />
+      <workItem from="1715322658733" duration="10619000" />
     </task>
     <servers />
   </component>
@@ -178,9 +165,9 @@
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/RegsController.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="17" />
+          <url>file://$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/DAO/RutinaDAO.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

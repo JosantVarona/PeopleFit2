@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import static dam.JosantVarona.Model.Enum.Dia.NINGUNO;
+
 public class Rutina {
     private Integer id;
     private Dia dia;
@@ -30,7 +32,7 @@ public class Rutina {
         this.usuario = usuario;
     }
     public Rutina(){
-    this(0,null,null,null,null);
+    this(0,NINGUNO,null,null,null);
     }
 
     public Integer getId() {

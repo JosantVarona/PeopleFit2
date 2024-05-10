@@ -14,13 +14,13 @@ import java.util.ResourceBundle;
 
 public class RegsController extends Controller implements Initializable {
     @FXML
-    TextField Textname;
+    private TextField Textname;
     @FXML
-    TextField Textcorreo;
+    private TextField Textcorreo;
     @FXML
-    TextField Textpass;
+    private TextField Textpass;
     @FXML
-    ImageView flecha;
+    private ImageView flecha;
 
     @FXML
     public Usuario RegocerDatos() throws IOException{
@@ -32,7 +32,7 @@ public class RegsController extends Controller implements Initializable {
             result = null;
         }else {
             if (Usuario.validarCorreo(correo) && Usuario.validarnombre(nombre) && Usuario.validarnombre(pass)){
-                Usuario u = new Usuario(correo,nombre,pass);
+                Usuario u = new Usuario(correo,nombre,pass );
                 result = u;
             }
         }

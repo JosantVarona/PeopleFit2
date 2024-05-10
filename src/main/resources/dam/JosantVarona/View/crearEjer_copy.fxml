@@ -26,11 +26,10 @@
          <children>
             <TextField fx:id="nameEjer" onAction="#datosEjercicio" />
             <Label prefHeight="26.0" prefWidth="117.0" text="Nombre del Ejercicio" />
-            <Slider fx:id="series" blockIncrement="1.0" majorTickUnit="1.0" max="10" min="1.0" minorTickCount="0" onMouseReleased="#datosEjercicio" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="1.0" />
+            <Slider fx:id="series" min="1.0" max="10" onMouseReleased="#datosEjercicio" />
             <Label prefHeight="26.0" prefWidth="60.0" text="nº Series" />
-            <Button fx:id="menosrepes" mnemonicParsing="false" onAction="#disminuir" text="-" />
-            <Label fx:id="rep" text="1" />
-            <Button fx:id="masrepes" mnemonicParsing="false" onAction="#aumentar" text="+" />
+            <Slider fx:id="repes" min="1.0" max="50" onMouseReleased="#datosEjercicio" />
+            <Label prefHeight="26.0" prefWidth="67.0" text="nº Repes" />
          </children>
       </HBox>
       <HBox prefHeight="186.0" prefWidth="600.0">

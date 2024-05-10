@@ -34,7 +34,7 @@ public class RutinaDAO implements DAO<Rutina,Integer> {
     public Rutina save(Rutina entity) {
         Rutina result = entity;
         if (entity==null) return result;
-        if (entity.getId()==null) {
+        if (entity.getId()==null || entity.getId()==0) {
                     try (PreparedStatement pst = conn.prepareStatement(INSERT,Statement.RETURN_GENERATED_KEYS)) {
                         //insert
                         pst.setString(1, (entity.getDia()).name());
@@ -148,6 +148,7 @@ public class RutinaDAO implements DAO<Rutina,Integer> {
             ResultSet res = pst.executeQuery();
             while (res.next()) {
                 Ejercicio e = new Ejercicio();
+                e.setId(res.getInt("id"));
                 e.setName(res.getString("name"));
                 e.setSerie(res.getInt("serie"));
                 e.setRepes(res.getInt("repes"));

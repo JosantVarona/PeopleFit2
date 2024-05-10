@@ -60,4 +60,20 @@ public class AppController extends Controller implements Initializable {
         alerta.setContentText("Cuenta no encontrada");
         alerta.showAndWait();
     }
+    public static void ejercicioInvalido(){
+        alerta.setContentText("Datos de ejercicios no validos");
+        alerta.showAndWait();
+    }
+    public static void Numernegativo(){
+        alerta.setContentText("no puede ser negativo");
+        alerta.showAndWait();
+    }
+    public static void datosRutinainvalidos(){
+        alerta.setContentText("Los datos de la rutinas son incorrectos");
+        alerta.showAndWait();
+    }
+    public static void meterEjercicios(){
+        alerta.setContentText("Tiene que meter al menos un ejercicio");
+        alerta.showAndWait();
+    }
 }

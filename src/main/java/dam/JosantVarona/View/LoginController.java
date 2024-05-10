@@ -2,6 +2,7 @@ package dam.JosantVarona.View;
 
 import dam.JosantVarona.App;
 import dam.JosantVarona.Model.DAO.UsuarioDAO;
+import dam.JosantVarona.Model.Entity.UserSesion;
 import dam.JosantVarona.Model.Entity.Usuario;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,21 +16,21 @@ import java.util.ResourceBundle;
 
 public class LoginController extends Controller implements Initializable {
     @FXML
-    TextField Texcuenta;
+    private TextField Texcuenta;
     @FXML
-    TextField Texpass;
+    private TextField Texpass;
     @FXML
-    ImageView flecha;
+    private ImageView flecha;
     @FXML
     public Usuario RecogerDatos() throws IOException{
         Usuario result = null;
-        UsuarioDAO u = new UsuarioDAO();
         String correo = Texcuenta.getText();
         String pass = Texpass.getText();
         Usuario aux = buscaCuenta(correo);
         if (aux !=null){
             if (aux.getCuenta().equals(correo) && aux.getPass().equals(pass)){
                 result = aux;
+                UserSesion.getInstancia().logIn(result);
             }
         }
         return result;
@@ -38,7 +39,9 @@ public class LoginController extends Controller implements Initializable {
         if(RecogerDatos() == null) {
             AppController.alernoEncontrada();
         } else {
+            UserSesion.getInstancia().logIn(RecogerDatos());
             App.currentController.changeScene(Scenes.Pricipal,null);
+
         }
     }
     @Override
