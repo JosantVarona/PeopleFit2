@@ -16,6 +16,7 @@ public class Rutina {
     private LocalDate fecha;
     private List<Ejercicio> ejercicios;
     private Usuario usuario;
+    private Boolean eliminar;
 
     public Rutina(Integer id, Dia dia, String descripcion,List<Ejercicio> ejercicios,Usuario usuario) {
         this.id = id;
@@ -33,6 +34,7 @@ public class Rutina {
     }
     public Rutina(){
     this(0,NINGUNO,null,null,null);
+    this.eliminar = false;
     }
 
     public Integer getId() {
@@ -108,6 +110,14 @@ public class Rutina {
         this.usuario = usuario;
     }
 
+    public Boolean getEliminar() {
+        return eliminar;
+    }
+
+    public void setEliminar(Boolean eliminar) {
+        this.eliminar = eliminar;
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(id);
@@ -120,7 +130,7 @@ public class Rutina {
                 ", dia=" + dia +
                 ", descripcion='" + descripcion + '\'' +
                 ", fecha=" + fecha +
-                ", usuario=" + usuario.getName() +
+                ", usuario=" + usuario.getId() +
                 ", ejercicios=" + ejercicios +
                 '}';
     }

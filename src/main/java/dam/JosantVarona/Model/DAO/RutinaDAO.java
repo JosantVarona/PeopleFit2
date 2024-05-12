@@ -21,7 +21,7 @@ public class RutinaDAO implements DAO<Rutina,Integer> {
     private static final String INSERTEJ = "INSERT INTO pertenece (ID_rutina,ID_ejercicio) VALUES(?,?)";
     private static final String DELETEALLEJ = "DELETE FROM pertenece WHERE ID_rutina=?";
     private static final String FINDBYUSUARIO = "SELECT r.id,r.Dia,r.Descripcion,r.Fecha,ID_usuario FROM rutina AS r WHERE r.id_usuario=?";
-    /*private static final String FINDEJER ="SELECT r.Descripcion, e.* FROM rutina r, ejercicio e, pertenece p WHERE r.id = p.ID_rutina AND e.id = p.ID_ejercicio";*/
+    private static final String FINDEJER ="SELECT e.* FROM rutina r, ejercicio e, pertenece p WHERE r.id = p.ID_rutina AND e.id = p.ID_ejercicio AND r.id=?";
 
 
     private Connection conn;
@@ -114,16 +114,18 @@ public class RutinaDAO implements DAO<Rutina,Integer> {
     @Override
     public Rutina findByid(Integer primaria) {
         Rutina result = null;
+        UsuarioDAO usDAO = new UsuarioDAO();
         try (PreparedStatement pst = conn.prepareStatement(FINDBYID)) {
             pst.setInt(1, primaria);
             try (ResultSet res = pst.executeQuery()) {
                 if (res.next()) {
                     Rutina r = new Rutina();
                     r.setId(res.getInt("id"));
-                    r.setDia(Dia.valueOf(res.getString("Dia")));
+                    r.setDia(Dia.valueOf(res.getString("Dia").toUpperCase()));
                     r.setDescripcion(res.getString("Descripcion"));
                     //ejercicios
                     r.setFecha(res.getDate("Fecha").toLocalDate());
+                    r.setUsuario(usDAO.Identificardor(res.getInt("ID_usuario")));
                     //Usuario
 
                     result = r;
@@ -162,14 +164,14 @@ public class RutinaDAO implements DAO<Rutina,Integer> {
     }
     public List<Rutina> findByUsuario (Usuario u){
         List<Rutina> result = new ArrayList<>();
-        if(u==null || u.getId()==null){
+        if(u!=null || u.getId()!=null){
             try(PreparedStatement pst = conn.prepareStatement(FINDBYUSUARIO)){
                 pst.setInt(1,u.getId());
                 try(ResultSet res = pst.executeQuery()){
                     while (res.next()){
                         Rutina r = new Rutina();
                         r.setId(res.getInt("id"));
-                        r.setDia(Dia.valueOf(res.getString("Dia")));
+                        r.setDia(Dia.valueOf(res.getString("Dia").toUpperCase()));
                         r.setDescripcion(res.getString("Descripcion"));
                         r.setFecha(res.getDate("Fecha").toLocalDate());
                         r.setUsuario(u);
@@ -180,6 +182,28 @@ public class RutinaDAO implements DAO<Rutina,Integer> {
                 e.printStackTrace();
             }
         }
+        return result;
+    }
+    public List<Ejercicio> findEjercicios (Rutina rutina){
+        List<Ejercicio> result = new ArrayList<>();
+        if (rutina != null){
+            try(PreparedStatement pst = conn.prepareStatement(FINDEJER)){
+                pst.setInt(1,rutina.getId());
+                try(ResultSet res = pst.executeQuery()){
+                    while (res.next()){
+                        Ejercicio e = new Ejercicio();
+                        e.setId(res.getInt("id"));
+                        e.setName(res.getString("name"));
+                        e.setSerie(res.getInt("serie"));
+                        e.setRepes(res.getInt("repes"));
+                        result.add(e);
+                    }
+                }
+            }catch (SQLException e){
+                e.printStackTrace();
+            }
+        }
+
         return result;
     }
     public static RutinaDAO build(){

@@ -17,9 +17,10 @@ public class UsuarioDAO  implements DAO<Usuario, String>{
 
     private final static String INSERT = "INSERT INTO usuario (cuenta, pass, name) VALUES(?,?,?)";
     private final static String UPDATE = "UPDATE usuario SET name=? WHERE id=?";
-    private final static String FINGBYID = "SELECT u.id,u.cuenta,u.name,u.pass FROM usuario AS u WHERE u.cuenta=?";
+    private final static String FINGBYCUENTA = "SELECT u.id,u.cuenta,u.name,u.pass FROM usuario AS u WHERE u.cuenta=?";
     private final static String FINDBYCUENTAPASS = "SELECT u.cuenta,u.pass FROM usuario AS u WHERE u.cuenta=?";
     private final static String DELETE = "DELETE FROM usuario AS u WHERE u.id";
+    private final static String FINGBYID = "SELECT u.id,u.cuenta,u.name,u.pass FROM usuario AS u WHERE u.id=?";
 
     @Override
     public Usuario save(Usuario entity) {
@@ -87,7 +88,7 @@ public class UsuarioDAO  implements DAO<Usuario, String>{
     public Usuario findByid(String primaria) {
     Usuario result = new Usuario();
     if (primaria !=null){
-    try(PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(FINGBYID)) {
+    try(PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(FINGBYCUENTA)) {
         pst.setString(1,primaria);
         ResultSet res = pst.executeQuery();
         if (res.next()){
@@ -103,6 +104,26 @@ public class UsuarioDAO  implements DAO<Usuario, String>{
     }
     return result;
     }
+    public Usuario Identificardor(Integer id) {
+        Usuario result = new Usuario();
+        if (id !=null){
+            try(PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(FINGBYID)) {
+                pst.setInt(1,id);
+                ResultSet res = pst.executeQuery();
+                if (res.next()){
+                    result.setId(res.getInt("id"));
+                    result.setCuenta(res.getString("cuenta"));
+                    result.setName(res.getString("name"));
+                    result.setPass(res.getString("pass"));
+                }
+                res.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return result;
+    }
+
 
     @Override
     public void close() throws IOException {
