@@ -5,8 +5,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -51,6 +54,17 @@ public class AppController extends Controller implements Initializable {
         borderPane.setCenter(view.scene);
         this.centerController = view.controller;
         this.centerController.onOpen(data);
+    }
+    public void openModalv(Scenes scenes, String tilte, Controller parent, Object data) throws IOException {
+        View view = loadFXML(scenes);
+        Stage stage = new Stage();
+        stage.setTitle(tilte);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.initOwner(App.stage);
+        Scene _scene = new Scene(view.scene);
+        stage.setScene(_scene);
+        view.controller.onOpen(data);
+        stage.showAndWait();
     }
     public static void alertaResgis(){
         alerta.setContentText("Se ha producido un error,(cuenta ya registrada o has escrito mal los datos )");

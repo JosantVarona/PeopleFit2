@@ -2,13 +2,11 @@ package dam.JosantVarona.View;
 
 import dam.JosantVarona.App;
 import dam.JosantVarona.Model.DAO.RutinaDAO;
-import dam.JosantVarona.Model.Entity.Ejercicio;
 import dam.JosantVarona.Model.Entity.Rutina;
 import dam.JosantVarona.Model.Entity.UserSesion;
 import dam.JosantVarona.Model.Entity.Usuario;
 import dam.JosantVarona.Model.Enum.Dia;
 import javafx.beans.property.*;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -17,12 +15,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.CheckBoxTableCell;
-import javafx.scene.control.cell.PropertyValueFactory;
 
 
 import java.io.IOException;
 import java.net.URL;
-import java.text.SimpleDateFormat;
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -63,12 +60,13 @@ public class MrutinaController extends Controller implements Initializable {
         columnId.setCellValueFactory(Rutina -> new SimpleIntegerProperty(Rutina.getValue().getId()).asObject());
         columnDia.setCellValueFactory(Rutina -> new SimpleObjectProperty<Dia>(Rutina.getValue().getDia()));
         columnname.setCellValueFactory(Rutina -> new SimpleStringProperty(Rutina.getValue().getDescripcion()));
-       // columFecha.setCellValueFactory(Rutina -> new Date(Rutina.getValue().getFecha()));
+        //columFecha.setCellValueFactory(Rutina -> );
         Eliminar.setCellValueFactory(cellData ->{
             SimpleBooleanProperty selectedProperty = new SimpleBooleanProperty(cellData.getValue().getEliminar());
             selectedProperty.addListener((obs, oldValue, newValue) -> {
                 System.out.println("Selected state changed to: " + newValue);
                 cellData.getValue().setEliminar(newValue);
+
             });
             return selectedProperty;
         });
@@ -82,10 +80,29 @@ public class MrutinaController extends Controller implements Initializable {
             Boolean nuevoValor = event.getNewValue();
 
             System.out.println("Nuevo valor: " + nuevoValor);
+
         });
         Eliminar.setEditable(true);
     }
     public void gotoMain() throws IOException {
         App.currentController.changeScene(Scenes.Pricipal,null);
+    }
+    @FXML
+    private void agregarEjer() throws IOException {
+        Rutina rutina = tableView.getSelectionModel().getSelectedItem();
+       App.currentController.changeScene(Scenes.EDIT,rutina);
+    }
+    @FXML
+    private void Eliminar() throws IOException {
+        for (Rutina rutina : rutinas){
+            if (rutina.getEliminar()==true){
+                try {
+                    RutinaDAO.build().delete(rutina);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        App.currentController.changeScene(Scenes.MODIFICAR,null);
     }
 }

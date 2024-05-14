@@ -2,6 +2,7 @@ package dam.JosantVarona.View;
 
 import dam.JosantVarona.App;
 import dam.JosantVarona.Model.DAO.UsuarioDAO;
+import dam.JosantVarona.Model.Entity.UserSesion;
 import dam.JosantVarona.Model.Entity.Usuario;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -34,6 +35,7 @@ public class RegsController extends Controller implements Initializable {
             if (Usuario.validarCorreo(correo) && Usuario.validarnombre(nombre) && Usuario.validarnombre(pass)){
                 Usuario u = new Usuario(correo,nombre,pass );
                 result = u;
+                UserSesion.getInstancia().logIn(result);
             }
         }
 
@@ -44,6 +46,7 @@ public class RegsController extends Controller implements Initializable {
         UsuarioDAO uDAO = new UsuarioDAO();
         if(result !=null){
             uDAO.save(result);
+            UserSesion.getInstancia().logIn(result);
             App.currentController.changeScene(Scenes.Pricipal,null);
         }else {
             AppController.alertaResgis();

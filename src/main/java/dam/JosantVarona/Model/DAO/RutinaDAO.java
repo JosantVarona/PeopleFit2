@@ -16,7 +16,7 @@ public class RutinaDAO implements DAO<Rutina,Integer> {
     private static final String FINDBYID = "SELECT r.id,r.Dia,r.Descripcion,r.Fecha,ID_usuario FROM rutina AS r WHERE r.id=?";
     private static final String INSERT = "INSERT INTO rutina (Dia,Descripcion,Fecha,ID_usuario) VALUES (?,?,?,?)";
     private static final String FINDALL = "SELECT * FROM ejercicio";
-    private static final String UPDATE = "UPDATE rutina SET Dia=? WHERE id=?";
+    private static final String UPDATE = "UPDATE rutina SET Dia=?,Descripcion=? WHERE id=?";
     private static final String DELETE = "DELETE FROM rutina WHERE id=?";
     private static final String INSERTEJ = "INSERT INTO pertenece (ID_rutina,ID_ejercicio) VALUES(?,?)";
     private static final String DELETEALLEJ = "DELETE FROM pertenece WHERE ID_rutina=?";
@@ -60,13 +60,13 @@ public class RutinaDAO implements DAO<Rutina,Integer> {
                     //Actualizar los datos propios de la rutina
                     try(PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(UPDATE)) {
                         pst.setString(1,entity.getDia().name());
-                        pst.setInt(2,entity.getId());
+                        pst.setString(2, entity.getDescripcion());
+                        pst.setInt(3,entity.getId());
                         pst.executeUpdate();
 
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
-                    //por hacer aun
                     //Actualizar los ejercicios
             asociaEjercicios(entity);
                 }

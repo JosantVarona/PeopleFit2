@@ -9,7 +9,10 @@ public enum Scenes {
     CrearRutina("View/CREARRUTI.fxml"),
     PERFIL("View/PERFIL.fxml"),
     MODIFICAR("View/Modify.fxml"),
-    EJERCICIOS("View/crearEjer.fxml");
+    EJERCICIOS("View/crearEjer.fxml"),
+    EDIT("View/EditRutina.fxml"),
+    MOSTRAR("View/EjerciciosR.fxml"),
+    AÑADIR("View/Agregar.fxml");
 
     private String url;
     Scenes(String url){

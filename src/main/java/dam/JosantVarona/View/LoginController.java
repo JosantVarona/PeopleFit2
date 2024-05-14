@@ -2,11 +2,11 @@ package dam.JosantVarona.View;
 
 import dam.JosantVarona.App;
 import dam.JosantVarona.Model.DAO.UsuarioDAO;
+import dam.JosantVarona.Model.Entity.IntanceRutina;
 import dam.JosantVarona.Model.Entity.UserSesion;
 import dam.JosantVarona.Model.Entity.Usuario;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
