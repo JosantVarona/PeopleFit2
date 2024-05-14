@@ -30,9 +30,12 @@ public class EjercicosController extends Controller implements Initializable {
     private Label rep;
     @FXML
     private int nrepes =1;
+    private boolean verifica = false;
+    private Ejercicio ejercicioParaActualizar = null;
+
     @Override
     public void onOpen(Object input) throws IOException {
-
+        ejercicioParaActualizar = (Ejercicio) input;
     }
 
     @Override
@@ -50,12 +53,22 @@ public class EjercicosController extends Controller implements Initializable {
     @FXML
     public Ejercicio datosEjercicio(){
         Ejercicio result = null;
-        String name= nameEjer.getText();
-        int serie = (int) series.getValue();
-        int repe = nrepes;
-        if(validarname(name)){
-            Ejercicio aux = new Ejercicio(serie,repe,name);
-            result = aux;
+        if (ejercicioParaActualizar==null) {
+
+            String name = nameEjer.getText();
+            int serie = (int) series.getValue();
+            int repe = nrepes;
+            if (validarname(name)) {
+                Ejercicio aux = new Ejercicio(serie, repe, name);
+                result = aux;
+            }
+        }else{
+            if (validarname(nameEjer.getText())) {
+                ejercicioParaActualizar.setName(nameEjer.getText());
+                ejercicioParaActualizar.setSerie((int) series.getValue());
+                ejercicioParaActualizar.setRepes(nrepes);
+            }
+            result = ejercicioParaActualizar;
         }
 
         return result;
@@ -90,4 +103,5 @@ public class EjercicosController extends Controller implements Initializable {
         }
         return valido;
     }
+
 }

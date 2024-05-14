@@ -17,6 +17,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.CheckBoxTableCell;
+import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 import java.net.URL;
@@ -43,10 +44,13 @@ public class UpDateController extends  Controller implements Initializable {
     private Button anadir;
     @FXML
     private ComboBox<String> diaR;
+    @FXML
+    private ImageView volver;
     private ObservableList<Ejercicio> ejercicioB;
     @Override
     public void onOpen(Object input) throws IOException {
         Rutina rutina = (Rutina) input;
+        asignar(rutina);
         IntanceRutina.getInstancia().logR(rutina);
         List<Ejercicio> ejercicios = RutinaDAO.build().findEjercicios(rutina);
         this.ejercicioB = FXCollections.observableArrayList(ejercicios);
@@ -91,15 +95,24 @@ public class UpDateController extends  Controller implements Initializable {
         diaR.setValue("Ninguno");
     }
     @FXML
-    public void eliminar(){
+    public void eliminar() throws IOException {
         for (Ejercicio ejercicio :ejercicioB){
             if(ejercicio.getAnadir()==true){
                 IntanceRutina.getInstancia().getRutinaLogin().removerEjercicio(ejercicio);
             }
-        }
+        }RutinaDAO.build().asociaEjercicios(IntanceRutina.getInstancia().getRutinaLogin());
+        App.currentController.changeScene(Scenes.EDIT,IntanceRutina.getInstancia().getRutinaLogin());
     }
     @FXML
     public void agregar() throws IOException {
         App.currentController.openModalv(Scenes.AÑADIR,"Añadir Ejercicios",this,null);
+    }
+    @FXML
+    public void volver() throws IOException{
+        App.currentController.changeScene(Scenes.MODIFICAR,null);
+        IntanceRutina.getInstancia().logOut();
+    }
+    private void asignar(Rutina rutina){
+        rutina.setEjercicios(RutinaDAO.build().findEjercicios(rutina));
     }
 }

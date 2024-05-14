@@ -132,4 +132,9 @@ public class RutinaController extends Controller implements Initializable {
             AppController.datosRutinainvalidos();
         }
     }
+    @FXML
+    private void editEjercicio() throws IOException {
+        Ejercicio ejercicio = tableView.getSelectionModel().getSelectedItem();
+        App.currentController.openModalv(Scenes.EJERCICIOS,"actualizar Ejercicio",this,ejercicio);
+    }
 }

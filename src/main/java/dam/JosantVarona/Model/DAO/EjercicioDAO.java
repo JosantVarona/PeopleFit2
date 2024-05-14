@@ -11,7 +11,7 @@ public class EjercicioDAO implements DAO<Ejercicio, Integer>{
     private static final String INSERT = "INSERT INTO ejercicio(serie,repes,name) VALUES (?,?,?)";
     private static final String FINDBNAME = "SELECT e.name,e.serie,e.repes,e.id FROM ejercicio AS e WHERE e.name=?";
     private static final String FINDID = "SELECT e.id,e.name,e.serie,e.repes FROM ejercicio AS e WHERE e.id=?";
-    private static final String UPDATE = "UPDATE ejercico SET serie=?,repes=?,name=? WHERE id=?";
+    private static final String UPDATE = "UPDATE ejercicio SET serie=?,repes=?,name=? WHERE id=?";
     private static final String DELETE = "DELETE FROM ejercicio WHERE id=?";
 
     private Connection conn;

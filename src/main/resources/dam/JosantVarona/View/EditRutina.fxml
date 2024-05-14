@@ -5,6 +5,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="358.0" prefWidth="538.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dam.JosantVarona.View.UpDateController">
@@ -18,9 +20,14 @@
             <TableColumn fx:id="Anadio" prefWidth="52.0" text="AÑADIR" />
          </columns>
       </TableView>
-      <Button fx:id="eliminar" layoutX="400.0" layoutY="251.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="76.0" text="Eliminar" />
-      <Button fx:id="anadir" layoutX="231.0" layoutY="287.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="76.0" text="añadir" />
+      <Button fx:id="eliminar" layoutX="317.0" layoutY="287.0" mnemonicParsing="false" onAction="#eliminar" prefHeight="47.0" prefWidth="76.0" text="Eliminar" />
+      <Button fx:id="anadir" layoutX="198.0" layoutY="287.0" mnemonicParsing="false" onAction="#agregar" prefHeight="47.0" prefWidth="76.0" text="añadir" />
       <ComboBox fx:id="diaR" layoutX="34.0" layoutY="262.0" prefWidth="150.0" />
-      <Label layoutX="34.0" layoutY="234.0" text="Cambiar dia" />
+      <Label layoutX="34.0" layoutY="234.0" text="Cambiar dia" textFill="WHITE" />
+      <ImageView fx:id="volver" fitHeight="73.0" fitWidth="76.0" layoutX="454.0" layoutY="258.0" onMouseClicked="#volver">
+         <image>
+            <Image url="@flecha.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>

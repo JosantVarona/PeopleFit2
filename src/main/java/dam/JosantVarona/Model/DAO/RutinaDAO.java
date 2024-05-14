@@ -73,7 +73,7 @@ public class RutinaDAO implements DAO<Rutina,Integer> {
 
         return result;
     }
-    private void asociaEjercicios(Rutina entity){
+    public void asociaEjercicios(Rutina entity){
         //borrando todos los que tuviera antes
         try (PreparedStatement pst = conn.prepareStatement(DELETEALLEJ)){
             pst.setInt(1,entity.getId());

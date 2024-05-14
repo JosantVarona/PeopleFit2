@@ -17,6 +17,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.Node;
 import javafx.event.Event;
+import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 import java.net.URL;
@@ -39,11 +40,14 @@ public class AgregarController extends Controller implements Initializable {
     @FXML
     private Button agregado;
 
+
     private ObservableList<Ejercicio> ejercicios;
     @Override
     public void onOpen(Object input) throws IOException {
-        System.out.println(IntanceRutina.getInstancia().getRutinaLogin());
         List<Ejercicio> ejercicios = RutinaDAO.build().FindAllEjer();
+        List<Ejercicio> ejerAsig = IntanceRutina.getInstancia().getRutinaLogin().getEjercicios();
+        ejercicios.removeAll(ejerAsig);
+
         this.ejercicios = FXCollections.observableArrayList(ejercicios);
         tableView.setItems(this.ejercicios);
     }
@@ -89,8 +93,8 @@ public class AgregarController extends Controller implements Initializable {
             if (ejercicio.getAnadir()==true){
                 IntanceRutina.getInstancia().getRutinaLogin().addEjercicio(ejercicio);
             }
-
-        }App.currentController.changeScene(Scenes.EDIT,IntanceRutina.getInstancia().getRutinaLogin());
+        }RutinaDAO.build().asociaEjercicios(IntanceRutina.getInstancia().getRutinaLogin());
+        App.currentController.changeScene(Scenes.EDIT,IntanceRutina.getInstancia().getRutinaLogin());
     }
     @FXML
     private void closeWindow(Event event){

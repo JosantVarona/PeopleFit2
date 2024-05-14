@@ -18,7 +18,7 @@ public class IntanceRutina {
     }
 
     public void logR(Rutina rutina) {
-        rutina.setEjercicios(RutinaDAO.build().findEjercicios(rutina));
+
         rutinaLogin = rutina;
     }
 

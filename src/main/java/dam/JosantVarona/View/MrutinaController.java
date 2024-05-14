@@ -15,12 +15,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.CheckBoxTableCell;
+import javafx.scene.image.ImageView;
 
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.Date;
+
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -36,7 +37,7 @@ public class MrutinaController extends Controller implements Initializable {
     @FXML
     private TableColumn<Rutina, String> columnname;
     @FXML
-    private TableColumn<Rutina, Date> columFecha;
+    private TableColumn<Rutina, String> columFecha;
     @FXML
     private TableColumn<Rutina, Boolean> Eliminar;
     @FXML
@@ -57,10 +58,10 @@ public class MrutinaController extends Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        columnId.setCellValueFactory(Rutina -> new SimpleIntegerProperty(Rutina.getValue().getId()).asObject());
-        columnDia.setCellValueFactory(Rutina -> new SimpleObjectProperty<Dia>(Rutina.getValue().getDia()));
-        columnname.setCellValueFactory(Rutina -> new SimpleStringProperty(Rutina.getValue().getDescripcion()));
-        //columFecha.setCellValueFactory(Rutina -> );
+        columnId.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getId()).asObject());
+        columnDia.setCellValueFactory(cellData -> new SimpleObjectProperty<Dia>(cellData.getValue().getDia()));
+        columnname.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDescripcion()));
+        columFecha.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getFecha().toString()) );
         Eliminar.setCellValueFactory(cellData ->{
             SimpleBooleanProperty selectedProperty = new SimpleBooleanProperty(cellData.getValue().getEliminar());
             selectedProperty.addListener((obs, oldValue, newValue) -> {
@@ -105,4 +106,5 @@ public class MrutinaController extends Controller implements Initializable {
         }
         App.currentController.changeScene(Scenes.MODIFICAR,null);
     }
+
 }
