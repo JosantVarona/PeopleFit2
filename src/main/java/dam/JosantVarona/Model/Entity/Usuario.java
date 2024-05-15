@@ -18,13 +18,13 @@ public class Usuario {
     public Usuario(Integer id, String cuenta, String pass, String name, List<Rutina> rutinas) {
         this.id = id;
         this.cuenta = cuenta;
-        setPass(pass);
+        this.pass = pass;
         this.name = name;
         this.rutinas = rutinas;
     }
     public Usuario(String cuenta,String pass,String name){
         this.cuenta = cuenta;
-        setPass(pass);
+        this.pass=pass;
         this.name = name;
     }
 
@@ -53,7 +53,7 @@ public class Usuario {
     }
 
     public void setPass(String pass) {
-        this.pass = pass;
+        this.pass=pass;
     }
 
     public String getName() {
@@ -103,26 +103,6 @@ public class Usuario {
                 ", name='" + name + '\'' +
                 ", rutinas=" + rutinas;
     }
-    /*public boolean comparePassword(String inputPassword) {
-        boolean comp;
-        try {
-            MessageDigest digest = MessageDigest.getInstance("SHA-256");
-
-            byte[] hashedBytes = digest.digest(inputPassword.getBytes());
-
-            StringBuilder stringBuilder = new StringBuilder();
-            for (byte b : hashedBytes) {
-                stringBuilder.append(String.format("%02x", b));
-            }
-            String hashedInputPassword = stringBuilder.toString();
-
-            comp = hashedInputPassword.equals(pass);
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-            comp = false;
-        }
-        return comp;
-    }*/
     public static boolean validarCorreo(String gmail) {
         boolean result = false;
         Pattern gmailPattern = Pattern.compile("[A-Za-z0-9]+@+(gmail|hotmail)\\.(com|es)");
@@ -138,6 +118,26 @@ public class Usuario {
         Matcher nameMatcher = namePattern.matcher(name);
         if (nameMatcher.matches()) {
             result = true;
+        }
+        return result;
+    }
+    public static String segurity(String pass){
+        String result = null;
+        try {
+
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+
+            byte[] hashedBytes = digest.digest(pass.getBytes());
+
+            StringBuilder stringBuilder = new StringBuilder();
+            for (byte b : hashedBytes) {
+                stringBuilder.append(String.format("%02x", b));
+            }
+            String hashedPassword = stringBuilder.toString();
+
+            result = hashedPassword;
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
         }
         return result;
     }

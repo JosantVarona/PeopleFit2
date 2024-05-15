@@ -8,6 +8,6 @@
       <TableColumn fx:id="columnId" prefWidth="75.0" text="ID" />
     <TableColumn fx:id="columnName" prefWidth="250.39997100830078" text="nombre" />
     <TableColumn fx:id="columnSeries" prefWidth="65.60003662109375" text="series" />
-      <TableColumn fx:id="columnRepes" prefWidth="76.800048828125" text="reseticiones" />
+      <TableColumn fx:id="columnRepes" prefWidth="76.800048828125" text="repeticiones" />
   </columns>
 </TableView>

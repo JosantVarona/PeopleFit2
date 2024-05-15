@@ -5,21 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87e8672d-133a-484a-adb5-5086a7365575" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/PerteneceController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/RutinasP.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/basura.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/salir.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/DAO/EjercicioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/DAO/EjercicioDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/DAO/RutinaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/DAO/RutinaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/Entity/IntanceRutina.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/Entity/IntanceRutina.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/AgregarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/AgregarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/Entity/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/Entity/Usuario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/EjercicosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/EjercicosController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/MrutinaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/MrutinaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/PricipalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/PricipalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/RegsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/RegsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/RutinaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/RutinaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/Scenes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/Scenes.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/UpDateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/UpDateController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/Agregar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/Agregar.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/CREARRUTI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/CREARRUTI.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/EditRutina.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/EditRutina.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/EjerciciosR.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/EjerciciosR.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/Modify.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/Modify.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/PERFIL.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/PERFIL.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/Principal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/Principal.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/REGISTER.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/REGISTER.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/crearEjer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/crearEjer.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dam/JosantVarona/View/login.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +60,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.App.executor": "Debug",
+    "Application.App.executor": "Run",
     "Application.LoadConnect.executor": "Run",
     "Application.TestSave.executor": "Run",
     "Application.TestSe.executor": "Run",
@@ -165,7 +173,12 @@
       <workItem from="1715611728893" duration="2348000" />
       <workItem from="1715625661716" duration="5196000" />
       <workItem from="1715668622186" duration="946000" />
-      <workItem from="1715672030409" duration="8208000" />
+      <workItem from="1715672030409" duration="8449000" />
+      <workItem from="1715697890403" duration="2484000" />
+      <workItem from="1715716693460" duration="4604000" />
+      <workItem from="1715754219434" duration="7362000" />
+      <workItem from="1715767491338" duration="8806000" />
+      <workItem from="1715793692541" duration="2133000" />
     </task>
     <servers />
   </component>
@@ -181,22 +194,9 @@
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/MrutinaController.java</url>
-          <line>60</line>
-          <properties>
-            <option name="lambda-ordinal" value="0" />
-          </properties>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/dam/JosantVarona/Model/DAO/EjercicioDAO.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/EjercicosController.java</url>
-          <line>73</line>
-          <option name="timeStamp" value="7" />
+          <url>file://$PROJECT_DIR$/src/main/java/dam/JosantVarona/View/LoginController.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

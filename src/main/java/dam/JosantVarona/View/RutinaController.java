@@ -1,6 +1,7 @@
 package dam.JosantVarona.View;
 
 import dam.JosantVarona.App;
+import dam.JosantVarona.Model.DAO.EjercicioDAO;
 import dam.JosantVarona.Model.DAO.RutinaDAO;
 import dam.JosantVarona.Model.Entity.Ejercicio;
 import dam.JosantVarona.Model.Entity.Rutina;
@@ -20,6 +21,7 @@ import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -47,6 +49,8 @@ public class RutinaController extends Controller implements Initializable {
     private ComboBox<String> diaR;
     @FXML
     private Button crearRutina;
+    @FXML
+    private ImageView basura;
 
     private ObservableList<Ejercicio> ejercicios;
     @Override
@@ -136,5 +140,23 @@ public class RutinaController extends Controller implements Initializable {
     private void editEjercicio() throws IOException {
         Ejercicio ejercicio = tableView.getSelectionModel().getSelectedItem();
         App.currentController.openModalv(Scenes.EJERCICIOS,"actualizar Ejercicio",this,ejercicio);
+    }
+    @FXML
+    public void eliminarEjer() throws IOException{
+        for (Ejercicio ejercicio : ejercicios){
+            if (ejercicio.getAnadir()== true){
+                EjercicioDAO ejer = new EjercicioDAO();
+                try {
+                    ejer.delete(ejercicio);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }App.currentController.changeScene(Scenes.CrearRutina,null);
+    }
+    @FXML
+    private void buscarRutinas() throws IOException {
+        Ejercicio ejercicio = tableView.getSelectionModel().getSelectedItem();
+        App.currentController.openModalv(Scenes.RUTINAS,"Rutinas que pertenece",this,ejercicio);
     }
 }

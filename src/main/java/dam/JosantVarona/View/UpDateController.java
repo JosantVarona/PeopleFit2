@@ -5,6 +5,7 @@ import dam.JosantVarona.Model.DAO.RutinaDAO;
 import dam.JosantVarona.Model.Entity.Ejercicio;
 import dam.JosantVarona.Model.Entity.IntanceRutina;
 import dam.JosantVarona.Model.Entity.Rutina;
+import dam.JosantVarona.Model.Enum.Dia;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -111,6 +112,13 @@ public class UpDateController extends  Controller implements Initializable {
     public void volver() throws IOException{
         App.currentController.changeScene(Scenes.MODIFICAR,null);
         IntanceRutina.getInstancia().logOut();
+    }
+    @FXML
+    public void cambiarDia(){
+        if (Dia.valueOf(diaR.getValue().toUpperCase()) != Dia.NINGUNO){
+            IntanceRutina.getInstancia().getRutinaLogin().setDia(Dia.valueOf(diaR.getValue().toUpperCase()));
+            RutinaDAO.build().save(IntanceRutina.getInstancia().getRutinaLogin());
+        }
     }
     private void asignar(Rutina rutina){
         rutina.setEjercicios(RutinaDAO.build().findEjercicios(rutina));

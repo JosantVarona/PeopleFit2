@@ -16,6 +16,11 @@
                </image>
             </ImageView>
           <Button fx:id="perfil" mnemonicParsing="false" onAction="#goToPerfil" text="MI PERFIL" />
+            <ImageView fx:id="salir" fitHeight="60.0" fitWidth="66.0" onMouseClicked="#goToInicio">
+               <image>
+                  <Image url="@salir.png" />
+               </image>
+            </ImageView>
         </items>
       </ToolBar>
    </top>

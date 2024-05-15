@@ -36,7 +36,7 @@
       <TableView fx:id="tableView" editable="true" layoutX="128.0" layoutY="107.0" prefHeight="205.0" prefWidth="466.0">
         <columns>
             <TableColumn fx:id="columnId" onEditStart="#editEjercicio" prefWidth="39.20001220703125" text="id" />
-            <TableColumn fx:id="columnName" prefWidth="265.5999755859375" text="Ejercicio" />
+            <TableColumn fx:id="columnName" onEditStart="#buscarRutinas" prefWidth="265.5999755859375" text="Ejercicio" />
             <TableColumn fx:id="columnSeries" prefWidth="49.60003662109375" text="Series" />
           <TableColumn fx:id="columnRepes" prefWidth="47.20001220703125" text="Repes" />
           <TableColumn fx:id="Anadio" prefWidth="59.20013427734375" text="AÑADIR" />
@@ -50,5 +50,10 @@
          </image>
       </ImageView>
       <ComboBox fx:id="diaR" layoutX="138.0" layoutY="74.0" prefWidth="150.0" promptText="Dia" />
+      <ImageView fx:id="basura" fitHeight="71.0" fitWidth="74.0" layoutX="381.0" layoutY="312.0" onMouseClicked="#eliminarEjer">
+         <image>
+            <Image url="@basura.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>

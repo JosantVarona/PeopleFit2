@@ -5,8 +5,10 @@ import dam.JosantVarona.Model.DAO.EjercicioDAO;
 import dam.JosantVarona.Model.Entity.Ejercicio;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 
@@ -103,5 +105,8 @@ public class EjercicosController extends Controller implements Initializable {
         }
         return valido;
     }
-
+    @FXML
+    private void closeWindow(Event event){
+        ((Node)(event.getSource())).getScene().getWindow().hide();
+    }
 }

@@ -22,7 +22,7 @@
       </TableView>
       <Button fx:id="eliminar" layoutX="317.0" layoutY="287.0" mnemonicParsing="false" onAction="#eliminar" prefHeight="47.0" prefWidth="76.0" text="Eliminar" />
       <Button fx:id="anadir" layoutX="198.0" layoutY="287.0" mnemonicParsing="false" onAction="#agregar" prefHeight="47.0" prefWidth="76.0" text="añadir" />
-      <ComboBox fx:id="diaR" layoutX="34.0" layoutY="262.0" prefWidth="150.0" />
+      <ComboBox fx:id="diaR" layoutX="34.0" layoutY="262.0" onAction="#cambiarDia" prefWidth="150.0" />
       <Label layoutX="34.0" layoutY="234.0" text="Cambiar dia" textFill="WHITE" />
       <ImageView fx:id="volver" fitHeight="73.0" fitWidth="76.0" layoutX="454.0" layoutY="258.0" onMouseClicked="#volver">
          <image>

@@ -12,7 +12,8 @@ public enum Scenes {
     EJERCICIOS("View/crearEjer.fxml"),
     EDIT("View/EditRutina.fxml"),
     MOSTRAR("View/EjerciciosR.fxml"),
-    AÑADIR("View/Agregar.fxml");
+    AÑADIR("View/Agregar.fxml"),
+    RUTINAS("View/RutinasP.fxml");
 
     private String url;
     Scenes(String url){

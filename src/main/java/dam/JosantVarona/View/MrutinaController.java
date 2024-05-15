@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.CheckBoxTableCell;
+import javafx.scene.control.cell.TextFieldListCell;
 import javafx.scene.image.ImageView;
 
 
@@ -24,6 +25,7 @@ import java.sql.SQLException;
 
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.scene.control.cell.TextFieldTableCell;
 
 public class MrutinaController extends Controller implements Initializable {
     @FXML
@@ -61,6 +63,19 @@ public class MrutinaController extends Controller implements Initializable {
         columnId.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getId()).asObject());
         columnDia.setCellValueFactory(cellData -> new SimpleObjectProperty<Dia>(cellData.getValue().getDia()));
         columnname.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDescripcion()));
+        columnname.setCellFactory(TextFieldTableCell.forTableColumn());
+        columnname.setOnEditCommit(event ->{
+            if (event.getNewValue()== event.getOldValue()){
+                return;
+            }
+            if (event.getNewValue().matches("^[a-zA-Z]{1,25}$")){
+                Rutina rutina = event.getRowValue();
+                rutina.setDescripcion(event.getNewValue());
+                RutinaDAO.build().save(rutina);
+            }else {
+                AppController.datosRutinainvalidos();
+            }
+        });
         columFecha.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getFecha().toString()) );
         Eliminar.setCellValueFactory(cellData ->{
             SimpleBooleanProperty selectedProperty = new SimpleBooleanProperty(cellData.getValue().getEliminar());

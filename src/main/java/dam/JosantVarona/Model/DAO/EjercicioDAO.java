@@ -2,17 +2,20 @@ package dam.JosantVarona.Model.DAO;
 
 import dam.JosantVarona.Model.Connection.ConnectionMariaDB;
 import dam.JosantVarona.Model.Entity.Ejercicio;
+import dam.JosantVarona.Model.Entity.Rutina;
+import dam.JosantVarona.Model.Enum.Dia;
 
 import java.io.IOException;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class EjercicioDAO implements DAO<Ejercicio, Integer>{
     private static final String INSERT = "INSERT INTO ejercicio(serie,repes,name) VALUES (?,?,?)";
-    private static final String FINDBNAME = "SELECT e.name,e.serie,e.repes,e.id FROM ejercicio AS e WHERE e.name=?";
     private static final String FINDID = "SELECT e.id,e.name,e.serie,e.repes FROM ejercicio AS e WHERE e.id=?";
     private static final String UPDATE = "UPDATE ejercicio SET serie=?,repes=?,name=? WHERE id=?";
     private static final String DELETE = "DELETE FROM ejercicio WHERE id=?";
+    private static final String BYRUTINA = "SELECT r.id,r.Descripcion,r.ID_usuario,r.Dia FROM rutina r, ejercicio e, pertenece p WHERE r.id = p.ID_rutina AND e.id = p.ID_ejercicio AND e.id=?";
 
     private Connection conn;
     public EjercicioDAO(){
@@ -94,7 +97,31 @@ public class EjercicioDAO implements DAO<Ejercicio, Integer>{
         }
         return result;
     }
-    public EjercicioDAO build(){
+    public List<Rutina> findRutina (Ejercicio ejercicio){
+        List<Rutina> result = new ArrayList<>();
+        UsuarioDAO usDAO = new UsuarioDAO();
+        if (ejercicio != null){
+            try(PreparedStatement pst = conn.prepareStatement(BYRUTINA)){
+                pst.setInt(1,ejercicio.getId());
+                try(ResultSet res = pst.executeQuery()){
+                    while (res.next()){
+                        Rutina r = new Rutina();
+                        r.setId(res.getInt("id"));
+                        r.setDescripcion(res.getString("Descripcion"));
+                        r.setUsuario(usDAO.Identificardor(res.getInt("ID_usuario")));
+                        r.setDia(Dia.valueOf(res.getString("Dia").toUpperCase()));
+                        result.add(r);
+                    }
+                }
+            }catch (SQLException e){
+                e.printStackTrace();
+            }
+        }
+
+        return result;
+    }
+    public static EjercicioDAO build(){
         return new EjercicioDAO();
     }
+
 }

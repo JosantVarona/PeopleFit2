@@ -6,6 +6,7 @@ import dam.JosantVarona.Model.Entity.UserSesion;
 import dam.JosantVarona.Model.Entity.Usuario;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
@@ -19,7 +20,7 @@ public class RegsController extends Controller implements Initializable {
     @FXML
     private TextField Textcorreo;
     @FXML
-    private TextField Textpass;
+    private PasswordField Textpass;
     @FXML
     private ImageView flecha;
 
@@ -33,7 +34,8 @@ public class RegsController extends Controller implements Initializable {
             result = null;
         }else {
             if (Usuario.validarCorreo(correo) && Usuario.validarnombre(nombre) && Usuario.validarnombre(pass)){
-                Usuario u = new Usuario(correo,nombre,pass );
+                String contrasena = Usuario.segurity(pass);
+                Usuario u = new Usuario(correo,contrasena,nombre);
                 result = u;
                 UserSesion.getInstancia().logIn(result);
             }
