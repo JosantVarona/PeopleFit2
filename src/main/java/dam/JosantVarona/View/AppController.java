@@ -1,9 +1,11 @@
 package dam.JosantVarona.View;
 
 import dam.JosantVarona.App;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -23,7 +25,7 @@ public class AppController extends Controller implements Initializable {
     private Controller centerController;
     @Override
     public void onOpen(Object input) throws IOException {
-        changeScene(Scenes.INICIO,null);
+        changeScene(Scenes.START,null);
 
     }
 
@@ -68,13 +70,15 @@ public class AppController extends Controller implements Initializable {
     }
     public static void alertaResgis(){
         alerta.setContentText("Se ha producido un error,(cuenta ya registrada o has escrito mal los datos )");
+        alerta.setWidth(500);
+        alerta.setHeight(500);
         alerta.showAndWait();
     }
-    public static void alernoEncontrada(){
+    public static void alerNotFound(){
         alerta.setContentText("Cuenta no encontrada");
         alerta.showAndWait();
     }
-    public static void ejercicioInvalido(){
+    public static void exerInvaliddata(){
         alerta.setContentText("Datos de ejercicios no validos");
         alerta.showAndWait();
     }
@@ -82,12 +86,16 @@ public class AppController extends Controller implements Initializable {
         alerta.setContentText("no puede ser negativo");
         alerta.showAndWait();
     }
-    public static void datosRutinainvalidos(){
+    public static void routineInvaliddata(){
         alerta.setContentText("Los datos de la rutinas son incorrectos");
         alerta.showAndWait();
     }
-    public static void meterEjercicios(){
-        alerta.setContentText("Tiene que meter al menos un ejercicio");
+    public static void invaliddata(){
+        alerta.setContentText("El nombre no es valido");
         alerta.showAndWait();
+    }
+    @FXML
+    private void closeWindow(Event event) {
+        ((Node) (event.getSource())).getScene().getWindow().hide();
     }
 }

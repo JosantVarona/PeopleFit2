@@ -2,9 +2,9 @@ package dam.JosantVarona.View;
 
 import dam.JosantVarona.App;
 import dam.JosantVarona.Model.DAO.RutinaDAO;
-import dam.JosantVarona.Model.Entity.Ejercicio;
+import dam.JosantVarona.Model.Entity.Exercise;
 import dam.JosantVarona.Model.Entity.IntanceRutina;
-import dam.JosantVarona.Model.Entity.Rutina;
+import dam.JosantVarona.Model.Entity.Routine;
 import dam.JosantVarona.Model.Enum.Dia;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -22,38 +22,37 @@ import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
 public class UpDateController extends  Controller implements Initializable {
     @FXML
-    private TableView<Ejercicio> tableView;
+    private TableView<Exercise> tableView;
     @FXML
-    private TableColumn<Ejercicio, Integer> columnId;
+    private TableColumn<Exercise, Integer> columnId;
     @FXML
-    private TableColumn<Ejercicio, Integer> columnSeries;
+    private TableColumn<Exercise, Integer> columnSeries;
     @FXML
-    private TableColumn<Ejercicio, Integer> columnRepes;
+    private TableColumn<Exercise, Integer> columnRepes;
     @FXML
-    private TableColumn<Ejercicio, String> columnName;
+    private TableColumn<Exercise, String> columnName;
     @FXML
-    private TableColumn<Ejercicio, Boolean> Anadio;
+    private TableColumn<Exercise, Boolean> Anadio;
     @FXML
-    private Button eliminar;
+    private Button delete;
     @FXML
-    private Button anadir;
+    private Button add;
     @FXML
     private ComboBox<String> diaR;
     @FXML
-    private ImageView volver;
-    private ObservableList<Ejercicio> ejercicioB;
+    private ImageView revert;
+    private ObservableList<Exercise> ejercicioB;
     @Override
     public void onOpen(Object input) throws IOException {
-        Rutina rutina = (Rutina) input;
+        Routine rutina = (Routine) input;
         asignar(rutina);
         IntanceRutina.getInstancia().logR(rutina);
-        List<Ejercicio> ejercicios = RutinaDAO.build().findEjercicios(rutina);
+        List<Exercise> ejercicios = RutinaDAO.build().findEjercicios(rutina);
         this.ejercicioB = FXCollections.observableArrayList(ejercicios);
         tableView.setItems(this.ejercicioB);
     }
@@ -71,19 +70,19 @@ public class UpDateController extends  Controller implements Initializable {
         columnRepes.setCellValueFactory(Ejercicio -> new SimpleIntegerProperty(Ejercicio.getValue().getRepes()).asObject());
 
         Anadio.setCellValueFactory(cellData -> {
-            SimpleBooleanProperty selectedProperty = new SimpleBooleanProperty(cellData.getValue().getAnadir());
+            SimpleBooleanProperty selectedProperty = new SimpleBooleanProperty(cellData.getValue().getAdd());
             selectedProperty.addListener((obs, oldValue, newValue) -> {
                 System.out.println("Selected state changed to: " + newValue);
-                cellData.getValue().setAnadir(newValue);
+                cellData.getValue().setAdd(newValue);
             });
             return selectedProperty;
         });
         Anadio.setCellFactory(column -> {
-            CheckBoxTableCell<Ejercicio, Boolean> cell = new CheckBoxTableCell<>();
+            CheckBoxTableCell<Exercise, Boolean> cell = new CheckBoxTableCell<>();
             return cell;
         });
-        Anadio.setOnEditCommit((TableColumn.CellEditEvent<Ejercicio, Boolean> event) -> {
-            Ejercicio item = event.getRowValue();
+        Anadio.setOnEditCommit((TableColumn.CellEditEvent<Exercise, Boolean> event) -> {
+            Exercise item = event.getRowValue();
 
             Boolean nuevoValor = event.getNewValue();
 
@@ -96,31 +95,31 @@ public class UpDateController extends  Controller implements Initializable {
         diaR.setValue("Ninguno");
     }
     @FXML
-    public void eliminar() throws IOException {
-        for (Ejercicio ejercicio :ejercicioB){
-            if(ejercicio.getAnadir()==true){
+    public void delete() throws IOException {
+        for (Exercise ejercicio :ejercicioB){
+            if(ejercicio.getAdd()==true){
                 IntanceRutina.getInstancia().getRutinaLogin().removerEjercicio(ejercicio);
             }
         }RutinaDAO.build().asociaEjercicios(IntanceRutina.getInstancia().getRutinaLogin());
         App.currentController.changeScene(Scenes.EDIT,IntanceRutina.getInstancia().getRutinaLogin());
     }
     @FXML
-    public void agregar() throws IOException {
-        App.currentController.openModalv(Scenes.AÑADIR,"Añadir Ejercicios",this,null);
+    public void addExercise() throws IOException {
+        App.currentController.openModalv(Scenes.ADD,"Añadir Ejercicios",this,null);
     }
     @FXML
-    public void volver() throws IOException{
+    public void goBack() throws IOException{
         App.currentController.changeScene(Scenes.MODIFICAR,null);
         IntanceRutina.getInstancia().logOut();
     }
     @FXML
-    public void cambiarDia(){
+    public void updateDay(){
         if (Dia.valueOf(diaR.getValue().toUpperCase()) != Dia.NINGUNO){
-            IntanceRutina.getInstancia().getRutinaLogin().setDia(Dia.valueOf(diaR.getValue().toUpperCase()));
+            IntanceRutina.getInstancia().getRutinaLogin().setDay(Dia.valueOf(diaR.getValue().toUpperCase()));
             RutinaDAO.build().save(IntanceRutina.getInstancia().getRutinaLogin());
         }
     }
-    private void asignar(Rutina rutina){
-        rutina.setEjercicios(RutinaDAO.build().findEjercicios(rutina));
+    private void asignar(Routine rutina){
+        rutina.setExercises(RutinaDAO.build().findEjercicios(rutina));
     }
 }

@@ -1,10 +1,8 @@
 package dam.JosantVarona.Model.Entity;
 
-import dam.JosantVarona.Model.DAO.RutinaDAO;
-
 public class IntanceRutina {
     private static IntanceRutina _instance;
-    private static Rutina rutinaLogin;
+    private static Routine rutinaLogin;
 
     private IntanceRutina() {
     }
@@ -17,12 +15,12 @@ public class IntanceRutina {
         return _instance;
     }
 
-    public void logR(Rutina rutina) {
+    public void logR(Routine rutina) {
 
         rutinaLogin = rutina;
     }
 
-    public Rutina getRutinaLogin() {
+    public Routine getRutinaLogin() {
         return rutinaLogin;
     }
 

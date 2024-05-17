@@ -2,18 +2,19 @@ package dam.JosantVarona.View;
 
 public enum Scenes {
     ROOT("View/layaut.fxml"),
-    INICIO("View/INICIO.fxml"),
+    START("View/INICIO.fxml"),
     LOGIN("View/login.fxml"),
     REGISTER("View/REGISTER.fxml"),
-    Pricipal("View/Principal.fxml"),
-    CrearRutina("View/CREARRUTI.fxml"),
-    PERFIL("View/PERFIL.fxml"),
+    BEGINNING("View/Principal.fxml"),
+    CREATEROUTINE("View/CREARRUTI.fxml"),
+    PROFILE("View/PERFIL.fxml"),
     MODIFICAR("View/Modify.fxml"),
-    EJERCICIOS("View/crearEjer.fxml"),
+    EXERCISE("View/crearEjer.fxml"),
     EDIT("View/EditRutina.fxml"),
-    MOSTRAR("View/EjerciciosR.fxml"),
-    AÑADIR("View/Agregar.fxml"),
-    RUTINAS("View/RutinasP.fxml");
+    SHOW("View/EjerciciosR.fxml"),
+    ADD("View/Agregar.fxml"),
+    ROUTINE("View/RutinasP.fxml"),
+    DELETEUSER("View/Eliminar.fxml");
 
     private String url;
     Scenes(String url){

@@ -21,7 +21,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         View view = AppController.loadFXML(Scenes.ROOT);
-        scene = new Scene(view.scene,750,500);
+        scene = new Scene(view.scene,1600,900);
         currentController = (AppController) view.controller;
         currentController.onOpen(null);
         stage.setScene(scene);

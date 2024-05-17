@@ -2,7 +2,7 @@ package dam.JosantVarona.Model.Entity;
 
 public class UserSesion {
     private static UserSesion _instance;
-    private static Usuario userLoged;
+    private static User userLoged;
 
     private UserSesion() {
     }
@@ -15,11 +15,11 @@ public class UserSesion {
         return _instance;
     }
 
-    public void logIn(Usuario user) {
+    public void logIn(User user) {
         userLoged = user;
     }
 
-    public Usuario getUsuarioIniciado() {
+    public User getUsuarioIniciado() {
         return userLoged;
     }
 

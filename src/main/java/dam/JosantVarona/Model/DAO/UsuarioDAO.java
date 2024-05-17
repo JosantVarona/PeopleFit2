@@ -1,9 +1,8 @@
 package dam.JosantVarona.Model.DAO;
 
 import dam.JosantVarona.Model.Connection.ConnectionMariaDB;
-import dam.JosantVarona.Model.Entity.Ejercicio;
-import dam.JosantVarona.Model.Entity.Rutina;
-import dam.JosantVarona.Model.Entity.Usuario;
+import dam.JosantVarona.Model.Entity.Routine;
+import dam.JosantVarona.Model.Entity.User;
 
 import java.io.IOException;
 import java.sql.PreparedStatement;
@@ -13,23 +12,23 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UsuarioDAO  implements DAO<Usuario, String>{
+public class UsuarioDAO  implements DAO<User, String>{
 
     private final static String INSERT = "INSERT INTO usuario (cuenta, pass, name) VALUES(?,?,?)";
     private final static String UPDATE = "UPDATE usuario SET name=? WHERE id=?";
     private final static String FINGBYCUENTA = "SELECT u.id,u.cuenta,u.name,u.pass FROM usuario AS u WHERE u.cuenta=?";
     private final static String FINDBYCUENTAPASS = "SELECT u.cuenta,u.pass FROM usuario AS u WHERE u.cuenta=?";
-    private final static String DELETE = "DELETE FROM usuario AS u WHERE u.id";
+    private final static String DELETE = "DELETE FROM usuario WHERE id=?";
     private final static String FINGBYID = "SELECT u.id,u.cuenta,u.name,u.pass FROM usuario AS u WHERE u.id=?";
 
     @Override
-    public Usuario save(Usuario entity) {
-        Usuario result = entity;
-        if(entity!=null || entity.getCuenta() !=null){
-        Usuario u = findByid(entity.getCuenta());
-                        if (u.getCuenta() == null) {
+    public User save(User entity) {
+        User result = entity;
+        if(entity!=null || entity.getAccount() !=null){
+        User u = findByid(entity.getAccount());
+                        if (u.getAccount() == null) {
                             try (PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS)) {
-                                pst.setString(1, entity.getCuenta());
+                                pst.setString(1, entity.getAccount());
                                 pst.setString(2, entity.getPass());
                                 pst.setString(3, entity.getName());
                                 pst.executeUpdate();
@@ -37,8 +36,8 @@ public class UsuarioDAO  implements DAO<Usuario, String>{
                                 if (res.next()) {
                                     entity.setId(res.getInt(1));
                                 }
-                                if (entity.getRutinas() != null) {
-                                    for (Rutina r : entity.getRutinas()) {
+                                if (entity.getRoutines() != null) {
+                                    for (Routine r : entity.getRoutines()) {
                                         RutinaDAO.build().save(r);
                                     }
                                 }
@@ -52,15 +51,15 @@ public class UsuarioDAO  implements DAO<Usuario, String>{
                                 pst.setString(1, entity.getName());
                                 pst.setInt(2, entity.getId());
                                 pst.executeUpdate();
-                                if (entity.getRutinas() != null) {
-                                    List<Rutina> rutinasBefore = RutinaDAO.build().findByUsuario(entity);
-                                    List<Rutina> rutinaAfter = entity.getRutinas();
-                                    List<Rutina> rutinaToBeRemoved = new ArrayList<>(rutinasBefore);
+                                if (entity.getRoutines() != null) {
+                                    List<Routine> rutinasBefore = RutinaDAO.build().findByUsuario(entity);
+                                    List<Routine> rutinaAfter = entity.getRoutines();
+                                    List<Routine> rutinaToBeRemoved = new ArrayList<>(rutinasBefore);
                                     rutinaToBeRemoved.removeAll(rutinaAfter);
-                                    for (Rutina r : rutinaToBeRemoved) {
+                                    for (Routine r : rutinaToBeRemoved) {
                                         RutinaDAO.build().delete(r);
                                     }
-                                    for (Rutina r : rutinaAfter) {
+                                    for (Routine r : rutinaAfter) {
                                         RutinaDAO.build().save(r);
                                     }
                                 }
@@ -75,7 +74,7 @@ public class UsuarioDAO  implements DAO<Usuario, String>{
     }
 
     @Override
-    public Usuario delete(Usuario entity) throws SQLException {
+    public User delete(User entity) throws SQLException {
         if(entity==null ) return entity;
         try(PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(DELETE)) {
             pst.setInt(1,entity.getId());
@@ -85,15 +84,15 @@ public class UsuarioDAO  implements DAO<Usuario, String>{
     }
 
     @Override
-    public Usuario findByid(String primaria) {
-    Usuario result = new Usuario();
+    public User findByid(String primaria) {
+    User result = new User();
     if (primaria !=null){
     try(PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(FINGBYCUENTA)) {
         pst.setString(1,primaria);
         ResultSet res = pst.executeQuery();
         if (res.next()){
             result.setId(res.getInt("id"));
-            result.setCuenta(res.getString("cuenta"));
+            result.setAccount(res.getString("cuenta"));
             result.setName(res.getString("name"));
             result.setPass(res.getString("pass"));
         }
@@ -104,15 +103,15 @@ public class UsuarioDAO  implements DAO<Usuario, String>{
     }
     return result;
     }
-    public Usuario Identificardor(Integer id) {
-        Usuario result = new Usuario();
+    public User Identify(Integer id) {
+        User result = new User();
         if (id !=null){
             try(PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(FINGBYID)) {
                 pst.setInt(1,id);
                 ResultSet res = pst.executeQuery();
                 if (res.next()){
                     result.setId(res.getInt("id"));
-                    result.setCuenta(res.getString("cuenta"));
+                    result.setAccount(res.getString("cuenta"));
                     result.setName(res.getString("name"));
                     result.setPass(res.getString("pass"));
                 }
@@ -129,14 +128,14 @@ public class UsuarioDAO  implements DAO<Usuario, String>{
     public void close() throws IOException {
 
     }
-    public Usuario verifi(String cuenta){
-        Usuario result=null;
+    public User verifi(String cuenta){
+        User result=null;
         if (cuenta !=null){
             try(PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(FINDBYCUENTAPASS)) {
                 pst.setString(1,cuenta);
                 ResultSet res = pst.executeQuery();
                 if (res.next()){
-                    result.setCuenta(res.getString("cuenta"));
+                    result.setAccount(res.getString("cuenta"));
                     result.setPass(res.getString("pass"));
                 }
             } catch (SQLException e) {
@@ -146,12 +145,12 @@ public class UsuarioDAO  implements DAO<Usuario, String>{
         return result;
     }
 }
-class UsuarioLazy extends Usuario{
+class UsuarioLazy extends User {
     @Override
-    public List<Rutina> getRutinas(){
-        if(super.getRutinas()==null){
-            setRutinas(RutinaDAO.build().findByUsuario(this));
+    public List<Routine> getRoutines(){
+        if(super.getRoutines()==null){
+            setRoutines(RutinaDAO.build().findByUsuario(this));
         }
-        return super.getRutinas();
+        return super.getRoutines();
     }
 }

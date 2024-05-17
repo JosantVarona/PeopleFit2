@@ -2,8 +2,8 @@ package dam.JosantVarona.View;
 
 import dam.JosantVarona.App;
 import dam.JosantVarona.Model.DAO.UsuarioDAO;
+import dam.JosantVarona.Model.Entity.User;
 import dam.JosantVarona.Model.Entity.UserSesion;
-import dam.JosantVarona.Model.Entity.Usuario;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.PasswordField;
@@ -22,20 +22,20 @@ public class RegsController extends Controller implements Initializable {
     @FXML
     private PasswordField Textpass;
     @FXML
-    private ImageView flecha;
+    private ImageView arrow;
 
     @FXML
-    public Usuario RegocerDatos() throws IOException{
-        Usuario result = null;
+    public User collecData() throws IOException{
+        User result = null;
         String correo = Textcorreo.getText();
         String nombre =Textname.getText();
         String pass = Textpass.getText() ;
-        if (exitecuenta(correo)){
+        if (existsAccount(correo)){
             result = null;
         }else {
-            if (Usuario.validarCorreo(correo) && Usuario.validarnombre(nombre) && Usuario.validarnombre(pass)){
-                String contrasena = Usuario.segurity(pass);
-                Usuario u = new Usuario(correo,contrasena,nombre);
+            if (User.validarCorreo(correo) && User.validarnombre(nombre) && User.validarnombre(pass)){
+                String contrasena = User.segurity(pass);
+                User u = new User(correo,contrasena,nombre);
                 result = u;
                 UserSesion.getInstancia().logIn(result);
             }
@@ -43,13 +43,13 @@ public class RegsController extends Controller implements Initializable {
 
         return result;
     }
-    public void guardarDatos() throws IOException{
-        Usuario result = RegocerDatos();
+    public void saveData() throws IOException{
+        User result = collecData();
         UsuarioDAO uDAO = new UsuarioDAO();
         if(result !=null){
             uDAO.save(result);
             UserSesion.getInstancia().logIn(result);
-            App.currentController.changeScene(Scenes.Pricipal,null);
+            App.currentController.changeScene(Scenes.BEGINNING,null);
         }else {
             AppController.alertaResgis();
         }
@@ -70,13 +70,13 @@ public class RegsController extends Controller implements Initializable {
     }
 
     public void goToInicio() throws IOException{
-        App.currentController.changeScene(Scenes.INICIO,null);
+        App.currentController.changeScene(Scenes.START,null);
     }
-    private boolean exitecuenta (String cuenta){
+    private boolean existsAccount(String account){
         boolean result= true;
         UsuarioDAO us = new UsuarioDAO();
-        if(cuenta !=null){
-            Usuario u = us.findByid(cuenta);
+        if(account !=null){
+            User u = us.findByid(account);
             if (u.getId()==null){
                 result = false;
             }

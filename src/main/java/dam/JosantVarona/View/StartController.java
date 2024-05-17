@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class InicioController extends Controller implements Initializable {
+public class StartController extends Controller implements Initializable {
     @Override
     public void onOpen(Object input) throws IOException {
 
@@ -25,12 +25,17 @@ public class InicioController extends Controller implements Initializable {
     }
     @FXML
     private void goTologin() throws IOException {
-        System.out.println(Scenes.LOGIN);
         App.currentController.changeScene(Scenes.LOGIN,null);
     }
     @FXML
     private void goToRegister() throws IOException {
-        System.out.println(Scenes.REGISTER);
+
         App.currentController.changeScene(Scenes.REGISTER,null);
     }
+    @FXML
+    private void goToDelete() throws IOException {
+
+        App.currentController.changeScene(Scenes.DELETEUSER,null);
+    }
+
 }

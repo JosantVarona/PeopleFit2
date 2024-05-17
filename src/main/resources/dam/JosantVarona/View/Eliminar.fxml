@@ -16,8 +16,8 @@
          </image>
       </ImageView>
       <TextField fx:id="Texcuenta" layoutX="410.0" layoutY="280.0" promptText="cuenta" />
-      <Label layoutX="437.0" layoutY="246.0" prefHeight="17.0" prefWidth="128.0" text="INICIAR SESION" textAlignment="CENTER" textFill="WHITE" />
-      <Button layoutX="458.0" layoutY="395.0" mnemonicParsing="false" onAction="#Collectdata" onMouseClicked="#controlLogin" text="Enter" />
+      <Label layoutX="437.0" layoutY="246.0" prefHeight="17.0" prefWidth="128.0" text="ELIMINAR CUENTA" textAlignment="CENTER" textFill="WHITE" />
+      <Button layoutX="458.0" layoutY="395.0" mnemonicParsing="false" onAction="#Collectdata" onMouseClicked="#deleteUser" text="Eliminar" />
       <ImageView fx:id="arrow" fitHeight="62.0" fitWidth="66.0" layoutX="679.0" layoutY="72.0" onMouseClicked="#gotoInicio">
          <image>
             <Image url="@flecha.png" />

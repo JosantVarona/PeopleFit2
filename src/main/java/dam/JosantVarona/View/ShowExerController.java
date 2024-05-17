@@ -1,8 +1,8 @@
 package dam.JosantVarona.View;
 
 import dam.JosantVarona.Model.DAO.RutinaDAO;
-import dam.JosantVarona.Model.Entity.Ejercicio;
-import dam.JosantVarona.Model.Entity.Rutina;
+import dam.JosantVarona.Model.Entity.Exercise;
+import dam.JosantVarona.Model.Entity.Routine;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -17,22 +17,22 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class MostrarEjerController extends Controller implements Initializable {
+public class ShowExerController extends Controller implements Initializable {
     @FXML
-    private TableView<Ejercicio> tableView;
+    private TableView<Exercise> tableView;
     @FXML
-    private TableColumn<Ejercicio, Integer> columnId;
+    private TableColumn<Exercise, Integer> columnId;
     @FXML
-    private TableColumn<Ejercicio, Integer> columnSeries;
+    private TableColumn<Exercise, Integer> columnSeries;
     @FXML
-    private TableColumn<Ejercicio, Integer> columnRepes;
+    private TableColumn<Exercise, Integer> columnRepes;
     @FXML
-    private TableColumn<Ejercicio, String> columnName;
-    private ObservableList<Ejercicio> ejercicioR;
+    private TableColumn<Exercise, String> columnName;
+    private ObservableList<Exercise> ejercicioR;
     @Override
     public void onOpen(Object input) throws IOException {
-        Rutina rutina = (Rutina) input;
-        List<Ejercicio> ejercicios= RutinaDAO.build().findEjercicios(rutina);
+        Routine rutina = (Routine) input;
+        List<Exercise> ejercicios= RutinaDAO.build().findEjercicios(rutina);
         this.ejercicioR = FXCollections.observableArrayList(ejercicios);
         tableView.setItems(this.ejercicioR);
     }

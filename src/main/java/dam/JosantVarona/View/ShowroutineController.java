@@ -2,9 +2,9 @@ package dam.JosantVarona.View;
 
 import dam.JosantVarona.App;
 import dam.JosantVarona.Model.DAO.RutinaDAO;
-import dam.JosantVarona.Model.Entity.Rutina;
+import dam.JosantVarona.Model.Entity.Routine;
 import dam.JosantVarona.Model.Entity.UserSesion;
-import dam.JosantVarona.Model.Entity.Usuario;
+import dam.JosantVarona.Model.Entity.User;
 import dam.JosantVarona.Model.Enum.Dia;
 import javafx.beans.property.*;
 import javafx.collections.FXCollections;
@@ -15,8 +15,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.CheckBoxTableCell;
-import javafx.scene.control.cell.TextFieldListCell;
-import javafx.scene.image.ImageView;
 
 
 import java.io.IOException;
@@ -27,28 +25,28 @@ import java.util.List;
 import java.util.ResourceBundle;
 import javafx.scene.control.cell.TextFieldTableCell;
 
-public class MrutinaController extends Controller implements Initializable {
+public class ShowroutineController extends Controller implements Initializable {
     @FXML
     private Button volver;
     @FXML
-    private TableView<Rutina> tableView;
+    private TableView<Routine> tableView;
     @FXML
-    private TableColumn<Rutina, Integer> columnId;
+    private TableColumn<Routine, Integer> columnId;
     @FXML
-    private TableColumn<Rutina, Dia> columnDia;
+    private TableColumn<Routine, Dia> columnDia;
     @FXML
-    private TableColumn<Rutina, String> columnname;
+    private TableColumn<Routine, String> columnname;
     @FXML
-    private TableColumn<Rutina, String> columFecha;
+    private TableColumn<Routine, String> columFecha;
     @FXML
-    private TableColumn<Rutina, Boolean> Eliminar;
+    private TableColumn<Routine, Boolean> Eliminar;
     @FXML
     private Button Borra;
-    private ObservableList<Rutina> rutinas;
+    private ObservableList<Routine> rutinas;
     @Override
     public void onOpen(Object input) throws IOException {
-        Usuario usuario = UserSesion.getInstancia().getUsuarioIniciado();
-        List<Rutina> rutinas= RutinaDAO.build().findByUsuario(usuario);
+        User usuario = UserSesion.getInstancia().getUsuarioIniciado();
+        List<Routine> rutinas= RutinaDAO.build().findByUsuario(usuario);
         this.rutinas = FXCollections.observableArrayList(rutinas);
         tableView.setItems(this.rutinas);
     }
@@ -61,37 +59,37 @@ public class MrutinaController extends Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         columnId.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getId()).asObject());
-        columnDia.setCellValueFactory(cellData -> new SimpleObjectProperty<Dia>(cellData.getValue().getDia()));
-        columnname.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDescripcion()));
+        columnDia.setCellValueFactory(cellData -> new SimpleObjectProperty<Dia>(cellData.getValue().getDay()));
+        columnname.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getName()));
         columnname.setCellFactory(TextFieldTableCell.forTableColumn());
         columnname.setOnEditCommit(event ->{
             if (event.getNewValue()== event.getOldValue()){
                 return;
             }
             if (event.getNewValue().matches("^[a-zA-Z]{1,25}$")){
-                Rutina rutina = event.getRowValue();
-                rutina.setDescripcion(event.getNewValue());
+                Routine rutina = event.getRowValue();
+                rutina.setName(event.getNewValue());
                 RutinaDAO.build().save(rutina);
             }else {
-                AppController.datosRutinainvalidos();
+                AppController.routineInvaliddata();
             }
         });
-        columFecha.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getFecha().toString()) );
+        columFecha.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDateR().toString()) );
         Eliminar.setCellValueFactory(cellData ->{
-            SimpleBooleanProperty selectedProperty = new SimpleBooleanProperty(cellData.getValue().getEliminar());
+            SimpleBooleanProperty selectedProperty = new SimpleBooleanProperty(cellData.getValue().getDeleteR());
             selectedProperty.addListener((obs, oldValue, newValue) -> {
                 System.out.println("Selected state changed to: " + newValue);
-                cellData.getValue().setEliminar(newValue);
+                cellData.getValue().setDeleteR(newValue);
 
             });
             return selectedProperty;
         });
         Eliminar.setCellFactory(column -> {
-            CheckBoxTableCell<Rutina, Boolean> cell = new CheckBoxTableCell<>();
+            CheckBoxTableCell<Routine, Boolean> cell = new CheckBoxTableCell<>();
             return cell;
         });
-        Eliminar.setOnEditCommit((TableColumn.CellEditEvent<Rutina, Boolean> event) -> {
-            Rutina item = event.getRowValue();
+        Eliminar.setOnEditCommit((TableColumn.CellEditEvent<Routine, Boolean> event) -> {
+            Routine item = event.getRowValue();
 
             Boolean nuevoValor = event.getNewValue();
 
@@ -101,17 +99,17 @@ public class MrutinaController extends Controller implements Initializable {
         Eliminar.setEditable(true);
     }
     public void gotoMain() throws IOException {
-        App.currentController.changeScene(Scenes.Pricipal,null);
+        App.currentController.changeScene(Scenes.BEGINNING,null);
     }
     @FXML
     private void agregarEjer() throws IOException {
-        Rutina rutina = tableView.getSelectionModel().getSelectedItem();
+        Routine rutina = tableView.getSelectionModel().getSelectedItem();
        App.currentController.changeScene(Scenes.EDIT,rutina);
     }
     @FXML
     private void Eliminar() throws IOException {
-        for (Rutina rutina : rutinas){
-            if (rutina.getEliminar()==true){
+        for (Routine rutina : rutinas){
+            if (rutina.getDeleteR()==true){
                 try {
                     RutinaDAO.build().delete(rutina);
                 } catch (SQLException e) {

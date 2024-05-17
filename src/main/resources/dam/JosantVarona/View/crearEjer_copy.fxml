@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dam.JosantVarona.View.EjercicosController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dam.JosantVarona.View.ExerciseController">
    <children>
       <Pane prefHeight="97.0" prefWidth="600.0" style="-fx-background-color: black;">
          <children>
@@ -24,17 +24,17 @@
       </Pane>
       <HBox prefHeight="53.0" prefWidth="600.0">
          <children>
-            <TextField fx:id="nameEjer" onAction="#datosEjercicio" />
+            <TextField fx:id="nameEjer" onAction="#dataExer" />
             <Label prefHeight="26.0" prefWidth="117.0" text="Nombre del Ejercicio" />
-            <Slider fx:id="series" min="1.0" max="10" onMouseReleased="#datosEjercicio" />
+            <Slider fx:id="series" min="1.0" max="10" onMouseReleased="#dataExer" />
             <Label prefHeight="26.0" prefWidth="60.0" text="nº Series" />
-            <Slider fx:id="repes" min="1.0" max="50" onMouseReleased="#datosEjercicio" />
+            <Slider fx:id="repes" min="1.0" max="50" onMouseReleased="#dataExer" />
             <Label prefHeight="26.0" prefWidth="67.0" text="nº Repes" />
          </children>
       </HBox>
       <HBox prefHeight="186.0" prefWidth="600.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#guardarEjercicio" prefHeight="63.0" prefWidth="137.0" text="Crear" />
+            <Button mnemonicParsing="false" onAction="#saveExer" prefHeight="63.0" prefWidth="137.0" text="Crear" />
             <ImageView fitHeight="200.0" fitWidth="237.0">
                <image>
                   <Image url="@Ejercicio.jpg" />

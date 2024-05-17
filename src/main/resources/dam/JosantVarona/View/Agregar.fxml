@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="358.0" prefWidth="538.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dam.JosantVarona.View.AgregarController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="358.0" prefWidth="538.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dam.JosantVarona.View.AddController">
    <children>
       <TableView fx:id="tableView" editable="true" layoutX="29.0" layoutY="10.0" prefHeight="209.0" prefWidth="485.0">
          <columns>
@@ -13,9 +13,9 @@
             <TableColumn fx:id="columnName" prefWidth="298.3999481201172" text="Ejercicio" />
             <TableColumn fx:id="columnSeries" prefWidth="47.20001220703125" text="Series" />
             <TableColumn fx:id="columnRepes" prefWidth="43.20001220703125" text="Repes" />
-            <TableColumn fx:id="Anadio" prefWidth="52.0" text="AÑADIR" />
+            <TableColumn fx:id="columnadd" prefWidth="52.0" text="AÑADIR" />
          </columns>
       </TableView>
-      <Button fx:id="agregado" layoutX="231.0" layoutY="287.0" mnemonicParsing="false" onAction="#agregar" onMouseClicked="#closeWindow" prefHeight="47.0" prefWidth="76.0" text="añadir" />
+      <Button fx:id="add" layoutX="231.0" layoutY="287.0" mnemonicParsing="false" onAction="#addExer" onMouseClicked="#closeWindow" prefHeight="47.0" prefWidth="76.0" text="añadir" />
    </children>
 </Pane>

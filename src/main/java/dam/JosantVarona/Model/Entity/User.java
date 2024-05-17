@@ -8,27 +8,27 @@ import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Usuario {
+public class User {
     private Integer id;
-    private String cuenta;
+    private String account;
     private String pass;
     private String name;
-    private List<Rutina> rutinas;
+    private List<Routine> routines;
 
-    public Usuario(Integer id, String cuenta, String pass, String name, List<Rutina> rutinas) {
+    public User(Integer id, String cuenta, String pass, String name, List<Routine> rutinas) {
         this.id = id;
-        this.cuenta = cuenta;
+        this.account = cuenta;
         this.pass = pass;
         this.name = name;
-        this.rutinas = rutinas;
+        this.routines = rutinas;
     }
-    public Usuario(String cuenta,String pass,String name){
-        this.cuenta = cuenta;
+    public User(String cuenta, String pass, String name){
+        this.account = cuenta;
         this.pass=pass;
         this.name = name;
     }
 
-    public Usuario(){
+    public User(){
 
     }
 
@@ -40,12 +40,12 @@ public class Usuario {
         this.id = id;
     }
 
-    public String getCuenta() {
-        return cuenta;
+    public String getAccount() {
+        return account;
     }
 
-    public void setCuenta(String cuenta) {
-        this.cuenta = cuenta;
+    public void setAccount(String account) {
+        this.account = account;
     }
 
     public String getPass() {
@@ -64,20 +64,20 @@ public class Usuario {
         this.name = name;
     }
 
-    public List<Rutina> getRutinas() {
-        return rutinas;
+    public List<Routine> getRoutines() {
+        return routines;
     }
 
-    public void setRutinas(List<Rutina> rutinas) {
-        this.rutinas = rutinas;
+    public void setRoutines(List<Routine> routines) {
+        this.routines = routines;
     }
-    public void  addRutina(Rutina rutina){
-        if(rutinas == null) rutinas = new ArrayList<>();
-        if(!rutinas.contains(rutina))rutinas.add(rutina);
+    public void  addRutina(Routine rutina){
+        if(routines == null) routines = new ArrayList<>();
+        if(!routines.contains(rutina)) routines.add(rutina);
     }
-    public void removeRutinas(Rutina rutina){
-        if(rutinas!=null){
-            rutinas.remove(rutina);
+    public void removeRutinas(Routine rutina){
+        if(routines !=null){
+            routines.remove(rutina);
         }
     }
 
@@ -85,23 +85,23 @@ public class Usuario {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Usuario usuario = (Usuario) o;
-        return id == usuario.id && Objects.equals(cuenta, usuario.cuenta);
+        User usuario = (User) o;
+        return id == usuario.id && Objects.equals(account, usuario.account);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, cuenta);
+        return Objects.hash(id, account);
     }
 
     @Override
     public String toString() {
-        return "Usuario{" +
+        return "User{" +
                 "id=" + id +
-                ", cuenta='" + cuenta + '\'' +
+                ", cuenta='" + account + '\'' +
                 ", pass='" + pass + '\'' +
                 ", name='" + name + '\'' +
-                ", rutinas=" + rutinas;
+                ", rutinas=" + routines;
     }
     public static boolean validarCorreo(String gmail) {
         boolean result = false;

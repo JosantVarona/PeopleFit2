@@ -2,9 +2,8 @@ package dam.JosantVarona.View;
 
 import dam.JosantVarona.App;
 import dam.JosantVarona.Model.DAO.UsuarioDAO;
-import dam.JosantVarona.Model.Entity.IntanceRutina;
 import dam.JosantVarona.Model.Entity.UserSesion;
-import dam.JosantVarona.Model.Entity.Usuario;
+import dam.JosantVarona.Model.Entity.User;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.PasswordField;
@@ -13,8 +12,7 @@ import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 import java.net.URL;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class LoginController extends Controller implements Initializable {
@@ -23,16 +21,16 @@ public class LoginController extends Controller implements Initializable {
     @FXML
     private PasswordField Texpass;
     @FXML
-    private ImageView flecha;
+    private ImageView arrow;
     @FXML
-    public Usuario RecogerDatos() throws IOException{
-        Usuario result = null;
+    public User Collectdata() throws IOException{
+        User result = null;
         String correo = Texcuenta.getText();
         String pass = Texpass.getText();
-        Usuario aux = buscaCuenta(correo);
-        String contrasena =Usuario.segurity(pass);
+        User aux = searchAccount(correo);
+        String contrasena = User.segurity(pass);
         if (aux !=null){
-            if (aux.getCuenta().equals(correo) && aux.getPass().equals(contrasena) ){
+            if (aux.getAccount().equals(correo) && aux.getPass().equals(contrasena) ){
                 result = aux;
                 UserSesion.getInstancia().logIn(result);
             }
@@ -40,12 +38,26 @@ public class LoginController extends Controller implements Initializable {
         return result;
     }
     public void controlLogin() throws IOException {
-        if(RecogerDatos() == null) {
-            AppController.alernoEncontrada();
+        if(Collectdata() == null) {
+            AppController.alerNotFound();
         } else {
-            UserSesion.getInstancia().logIn(RecogerDatos());
-            App.currentController.changeScene(Scenes.Pricipal,null);
+            UserSesion.getInstancia().logIn(Collectdata());
+            App.currentController.changeScene(Scenes.BEGINNING,null);
 
+        }
+    }
+    public void deleteUser() throws IOException{
+        if(Collectdata() == null) {
+            AppController.alerNotFound();
+        } else {
+            UserSesion.getInstancia().logOut();
+            UsuarioDAO us = new UsuarioDAO();
+            try {
+                us.delete(Collectdata());
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            App.currentController.changeScene(Scenes.START,null);
         }
     }
     @Override
@@ -63,14 +75,14 @@ public class LoginController extends Controller implements Initializable {
 
     }
     public void gotoInicio() throws IOException {
-        System.out.println(Scenes.INICIO);
-        App.currentController.changeScene(Scenes.INICIO,null);
+        System.out.println(Scenes.START);
+        App.currentController.changeScene(Scenes.START,null);
     }
-    private Usuario buscaCuenta(String cuenta){
-        Usuario result= null;
+    private User searchAccount(String cuenta){
+        User result= null;
         UsuarioDAO u = new UsuarioDAO();
         if (cuenta != null){
-            Usuario aux = u.findByid(cuenta);
+            User aux = u.findByid(cuenta);
             if (aux.getId() !=null){
                 result = aux;
             }

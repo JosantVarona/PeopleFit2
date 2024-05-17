@@ -4,13 +4,15 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dam.JosantVarona.View.PerfilController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dam.JosantVarona.View.ProfileController">
    <children>
       <ToolBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: blue;">
         <items>
@@ -23,20 +25,29 @@
         </items>
       </ToolBar>
       <Label prefHeight="32.0" prefWidth="94.0" text="     Mis rutinas" textFill="WHITE" />
-      <HBox prefHeight="305.0" prefWidth="600.0">
+      <HBox prefHeight="308.0" prefWidth="640.0">
          <children>
-            <TableView fx:id="tableView" editable="true" prefHeight="158.0" prefWidth="350.0">
+            <TableView fx:id="tableView" editable="true" prefHeight="310.0" prefWidth="546.0">
               <columns>
-                <TableColumn fx:id="columnId" onEditStart="#Ejercicios" prefWidth="121.5999755859375" text="id" />
-                <TableColumn fx:id="Columname" minWidth="8.800048828125" prefWidth="126.4000244140625" text="Rutina" />
-                  <TableColumn fx:id="columnDia" prefWidth="99.20001220703125" text="Dia" />
+                <TableColumn fx:id="columnId" onEditStart="#exerciseR" prefWidth="121.5999755859375" text="id" />
+                <TableColumn fx:id="Columname" minWidth="8.800048828125" prefWidth="352.00001525878906" text="Rutina" />
+                  <TableColumn fx:id="columnDia" prefWidth="69.5999755859375" text="Dia" />
               </columns>
             </TableView>
-            <ImageView fitHeight="309.0" fitWidth="249.0">
+            <ImageView fitHeight="441.0" fitWidth="736.0">
                <image>
                   <Image url="@logo.jpg" />
                </image>
             </ImageView>
+         </children>
+      </HBox>
+      <Pane prefHeight="111.0" prefWidth="1280.0" />
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label prefHeight="26.0" prefWidth="375.0" text="Cambiar nombre:" />
+            <TextField fx:id="nombre" prefHeight="26.0" prefWidth="336.0" />
+            <Pane prefHeight="200.0" prefWidth="200.0" />
+            <Button mnemonicParsing="false" onAction="#updatename" prefHeight="43.0" prefWidth="111.0" text="Guardar" />
          </children>
       </HBox>
    </children>

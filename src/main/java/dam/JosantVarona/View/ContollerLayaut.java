@@ -24,7 +24,8 @@ public class ContollerLayaut extends Controller implements Initializable {
 
     }
     @FXML
-    private void goToInicio() throws IOException{
-        App.currentController.changeScene(Scenes.INICIO,null);
+    private void goToStart() throws IOException{
+        App.currentController.changeScene(Scenes.START,null);
     }
+
 }

@@ -2,7 +2,7 @@ package dam.JosantVarona.View;
 
 import dam.JosantVarona.App;
 import dam.JosantVarona.Model.DAO.RutinaDAO;
-import dam.JosantVarona.Model.Entity.Ejercicio;
+import dam.JosantVarona.Model.Entity.Exercise;
 import dam.JosantVarona.Model.Entity.IntanceRutina;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -17,39 +17,38 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.Node;
 import javafx.event.Event;
-import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class AgregarController extends Controller implements Initializable {
+public class AddController extends Controller implements Initializable {
     @FXML
-    private TableView<Ejercicio> tableView;
+    private TableView<Exercise> tableView;
     @FXML
-    private TableColumn<Ejercicio, Integer> columnId;
+    private TableColumn<Exercise, Integer> columnId;
     @FXML
-    private TableColumn<Ejercicio, Integer> columnSeries;
+    private TableColumn<Exercise, Integer> columnSeries;
     @FXML
-    private TableColumn<Ejercicio, Integer> columnRepes;
+    private TableColumn<Exercise, Integer> columnRepes;
     @FXML
-    private TableColumn<Ejercicio, String> columnName;
+    private TableColumn<Exercise, String> columnName;
     @FXML
-    private TableColumn<Ejercicio, Boolean> Anadio;
+    private TableColumn<Exercise, Boolean> columnadd;
     @FXML
-    private Button agregado;
+    private Button add;
 
 
-    private ObservableList<Ejercicio> ejercicios;
+    private ObservableList<Exercise> exercises;
     @Override
     public void onOpen(Object input) throws IOException {
-        List<Ejercicio> ejercicios = RutinaDAO.build().FindAllEjer();
-        List<Ejercicio> ejerAsig = IntanceRutina.getInstancia().getRutinaLogin().getEjercicios();
+        List<Exercise> ejercicios = RutinaDAO.build().FindAllEjer();
+        List<Exercise> ejerAsig = IntanceRutina.getInstancia().getRutinaLogin().getExercises();
         ejercicios.removeAll(ejerAsig);
 
-        this.ejercicios = FXCollections.observableArrayList(ejercicios);
-        tableView.setItems(this.ejercicios);
+        this.exercises = FXCollections.observableArrayList(ejercicios);
+        tableView.setItems(this.exercises);
     }
 
     @Override
@@ -64,20 +63,20 @@ public class AgregarController extends Controller implements Initializable {
         columnSeries.setCellValueFactory(Ejercicio -> new SimpleIntegerProperty(Ejercicio.getValue().getSerie()).asObject());
         columnRepes.setCellValueFactory(Ejercicio -> new SimpleIntegerProperty(Ejercicio.getValue().getRepes()).asObject());
 
-        Anadio.setCellValueFactory(cellData -> {
-            SimpleBooleanProperty selectedProperty = new SimpleBooleanProperty(cellData.getValue().getAnadir());
+        columnadd.setCellValueFactory(cellData -> {
+            SimpleBooleanProperty selectedProperty = new SimpleBooleanProperty(cellData.getValue().getAdd());
             selectedProperty.addListener((obs, oldValue, newValue) -> {
                 System.out.println("Selected state changed to: " + newValue);
-                cellData.getValue().setAnadir(newValue);
+                cellData.getValue().setAdd(newValue);
             });
             return selectedProperty;
         });
-        Anadio.setCellFactory(column -> {
-            CheckBoxTableCell<Ejercicio, Boolean> cell = new CheckBoxTableCell<>();
+        columnadd.setCellFactory(column -> {
+            CheckBoxTableCell<Exercise, Boolean> cell = new CheckBoxTableCell<>();
             return cell;
         });
-        Anadio.setOnEditCommit((TableColumn.CellEditEvent<Ejercicio, Boolean> event) -> {
-            Ejercicio item = event.getRowValue();
+        columnadd.setOnEditCommit((TableColumn.CellEditEvent<Exercise, Boolean> event) -> {
+            Exercise item = event.getRowValue();
 
             Boolean nuevoValor = event.getNewValue();
 
@@ -85,12 +84,12 @@ public class AgregarController extends Controller implements Initializable {
 
 
         });
-        Anadio.setEditable(true);
+        columnadd.setEditable(true);
     }
     @FXML
-    public void agregar() throws IOException {
-        for (Ejercicio ejercicio : ejercicios){
-            if (ejercicio.getAnadir()==true){
+    public void addExer() throws IOException {
+        for (Exercise ejercicio : exercises){
+            if (ejercicio.getAdd()==true){
                 IntanceRutina.getInstancia().getRutinaLogin().addEjercicio(ejercicio);
             }
         }RutinaDAO.build().asociaEjercicios(IntanceRutina.getInstancia().getRutinaLogin());

@@ -2,27 +2,27 @@ package dam.JosantVarona.Model.Entity;
 
 import java.util.Objects;
 
-public class Ejercicio {
+public class Exercise {
     private Integer id;
     private Integer serie;
     private Integer repes;
     private String name;
-    private Boolean anadir;
-    public Ejercicio(Integer id, Integer serie, Integer repes, String name) {
+    private Boolean add;
+    public Exercise(Integer id, Integer serie, Integer repes, String name) {
         this.id = id;
         this.serie = serie;
         this.repes = repes;
         this.name = name;
-        this.anadir = false;
+        this.add = false;
     }
-    public Ejercicio( Integer serie, Integer repes, String name) {
+    public Exercise(Integer serie, Integer repes, String name) {
         this.serie = serie;
         this.repes = repes;
         this.name = name;
-        this.anadir = false;
+        this.add = false;
     }
-    public Ejercicio(){
-        this.anadir = false;
+    public Exercise(){
+        this.add = false;
     }
 
     public Integer getId() {
@@ -57,19 +57,19 @@ public class Ejercicio {
         this.name = name;
     }
 
-    public Boolean getAnadir() {
-        return anadir;
+    public Boolean getAdd() {
+        return add;
     }
 
-    public void setAnadir(Boolean anadir) {
-        this.anadir = anadir;
+    public void setAdd(Boolean add) {
+        this.add = add;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Ejercicio ejercicio = (Ejercicio) o;
+        Exercise ejercicio = (Exercise) o;
         return id == ejercicio.id;
     }
 
@@ -80,7 +80,7 @@ public class Ejercicio {
 
     @Override
     public String toString() {
-        return "Ejercicio{" +
+        return "Exercise{" +
                 "id=" + id +
                 ", serie=" + serie +
                 ", repes=" + repes +

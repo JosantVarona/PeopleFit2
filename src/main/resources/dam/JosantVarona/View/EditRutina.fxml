@@ -20,11 +20,11 @@
             <TableColumn fx:id="Anadio" prefWidth="52.0" text="AÑADIR" />
          </columns>
       </TableView>
-      <Button fx:id="eliminar" layoutX="317.0" layoutY="287.0" mnemonicParsing="false" onAction="#eliminar" prefHeight="47.0" prefWidth="76.0" text="Eliminar" />
-      <Button fx:id="anadir" layoutX="198.0" layoutY="287.0" mnemonicParsing="false" onAction="#agregar" prefHeight="47.0" prefWidth="76.0" text="añadir" />
-      <ComboBox fx:id="diaR" layoutX="34.0" layoutY="262.0" onAction="#cambiarDia" prefWidth="150.0" />
+      <Button fx:id="delete" layoutX="317.0" layoutY="287.0" mnemonicParsing="false" onAction="#delete" prefHeight="47.0" prefWidth="76.0" text="Eliminar" />
+      <Button fx:id="add" layoutX="198.0" layoutY="287.0" mnemonicParsing="false" onAction="#addExercise" prefHeight="47.0" prefWidth="76.0" text="añadir" />
+      <ComboBox fx:id="diaR" layoutX="34.0" layoutY="262.0" onAction="#updateDay" prefWidth="150.0" />
       <Label layoutX="34.0" layoutY="234.0" text="Cambiar dia" textFill="WHITE" />
-      <ImageView fx:id="volver" fitHeight="73.0" fitWidth="76.0" layoutX="454.0" layoutY="258.0" onMouseClicked="#volver">
+      <ImageView fx:id="revert" fitHeight="73.0" fitWidth="76.0" layoutX="454.0" layoutY="258.0" onMouseClicked="#goBack">
          <image>
             <Image url="@flecha.png" />
          </image>

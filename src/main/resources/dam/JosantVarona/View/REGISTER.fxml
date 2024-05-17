@@ -15,15 +15,15 @@
             <Image url="@logo.jpg" />
          </image>
       </ImageView>
-      <TextField fx:id="Textcorreo" layoutX="226.0" layoutY="212.0" onAction="#RegocerDatos" promptText="cuenta" />
+      <TextField fx:id="Textcorreo" layoutX="226.0" layoutY="212.0" onAction="#collecData" promptText="cuenta" />
       <Label layoutX="263.0" layoutY="183.0" prefHeight="17.0" prefWidth="128.0" text="REGISTREARSE" textAlignment="CENTER" textFill="WHITE" />
-      <TextField fx:id="Textname" layoutX="226.0" layoutY="254.0" onAction="#RegocerDatos" promptText="nombre usuario" />
-      <Button layoutX="274.0" layoutY="340.0" mnemonicParsing="false" onAction="#guardarDatos" text="Enviar" />
-      <ImageView fx:id="flecha" fitHeight="51.0" fitWidth="60.0" layoutX="526.0" layoutY="14.0" onMouseClicked="#goToInicio">
+      <TextField fx:id="Textname" layoutX="226.0" layoutY="254.0" onAction="#collecData" promptText="nombre usuario" />
+      <Button layoutX="274.0" layoutY="340.0" mnemonicParsing="false" onAction="#saveData" text="Enviar" />
+      <ImageView fx:id="arrow" fitHeight="51.0" fitWidth="60.0" layoutX="526.0" layoutY="14.0" onMouseClicked="#goToInicio">
          <image>
             <Image url="@flecha.png" />
          </image>
       </ImageView>
-      <PasswordField fx:id="Textpass" layoutX="226.0" layoutY="301.0" onAction="#RegocerDatos" promptText="contraseña" />
+      <PasswordField fx:id="Textpass" layoutX="226.0" layoutY="301.0" onAction="#collecData" promptText="contraseña" />
    </children>
 </Pane>

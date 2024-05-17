@@ -1,8 +1,8 @@
 package dam.JosantVarona.Model.DAO;
 
 import dam.JosantVarona.Model.Connection.ConnectionMariaDB;
-import dam.JosantVarona.Model.Entity.Ejercicio;
-import dam.JosantVarona.Model.Entity.Rutina;
+import dam.JosantVarona.Model.Entity.Exercise;
+import dam.JosantVarona.Model.Entity.Routine;
 import dam.JosantVarona.Model.Enum.Dia;
 
 import java.io.IOException;
@@ -10,7 +10,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EjercicioDAO implements DAO<Ejercicio, Integer>{
+public class EjercicioDAO implements DAO<Exercise, Integer>{
     private static final String INSERT = "INSERT INTO ejercicio(serie,repes,name) VALUES (?,?,?)";
     private static final String FINDID = "SELECT e.id,e.name,e.serie,e.repes FROM ejercicio AS e WHERE e.id=?";
     private static final String UPDATE = "UPDATE ejercicio SET serie=?,repes=?,name=? WHERE id=?";
@@ -22,8 +22,8 @@ public class EjercicioDAO implements DAO<Ejercicio, Integer>{
         conn = ConnectionMariaDB.getConnection();
     }
     @Override
-    public Ejercicio save(Ejercicio entity) {
-        Ejercicio result = entity;
+    public Exercise save(Exercise entity) {
+        Exercise result = entity;
             if (entity!=null){
 
 
@@ -56,7 +56,7 @@ public class EjercicioDAO implements DAO<Ejercicio, Integer>{
     }
 
     @Override
-    public Ejercicio delete(Ejercicio entity) throws SQLException {
+    public Exercise delete(Exercise entity) throws SQLException {
         if (entity !=null){
             try (PreparedStatement pst = conn.prepareStatement(DELETE)){
                 pst.setInt(1,entity.getId());
@@ -74,15 +74,15 @@ public class EjercicioDAO implements DAO<Ejercicio, Integer>{
 
     }
     @Override
-    public Ejercicio findByid(Integer key){
-        Ejercicio result = null;
+    public Exercise findByid(Integer key){
+        Exercise result = null;
         if(key != null) {
 
             try (PreparedStatement pst = conn.prepareStatement(FINDID)) {
                 pst.setInt(1, key);
                 try (ResultSet res = pst.executeQuery()) {
                     if (res.next()) {
-                        Ejercicio e = new Ejercicio();
+                        Exercise e = new Exercise();
                         e.setId(res.getInt("id"));
                         e.setName(res.getString("name"));
                         e.setSerie(res.getInt("serie"));
@@ -97,19 +97,19 @@ public class EjercicioDAO implements DAO<Ejercicio, Integer>{
         }
         return result;
     }
-    public List<Rutina> findRutina (Ejercicio ejercicio){
-        List<Rutina> result = new ArrayList<>();
+    public List<Routine> findRutina (Exercise ejercicio){
+        List<Routine> result = new ArrayList<>();
         UsuarioDAO usDAO = new UsuarioDAO();
         if (ejercicio != null){
             try(PreparedStatement pst = conn.prepareStatement(BYRUTINA)){
                 pst.setInt(1,ejercicio.getId());
                 try(ResultSet res = pst.executeQuery()){
                     while (res.next()){
-                        Rutina r = new Rutina();
+                        Routine r = new Routine();
                         r.setId(res.getInt("id"));
-                        r.setDescripcion(res.getString("Descripcion"));
-                        r.setUsuario(usDAO.Identificardor(res.getInt("ID_usuario")));
-                        r.setDia(Dia.valueOf(res.getString("Dia").toUpperCase()));
+                        r.setName(res.getString("Descripcion"));
+                        r.setUser(usDAO.Identify(res.getInt("ID_usuario")));
+                        r.setDay(Dia.valueOf(res.getString("Dia").toUpperCase()));
                         result.add(r);
                     }
                 }

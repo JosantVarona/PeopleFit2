@@ -14,9 +14,9 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dam.JosantVarona.View.RutinaController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dam.JosantVarona.View.RoutineController">
    <children>
-      <ToolBar prefHeight="400.0" prefWidth="126.0" style="-fx-background-color: BLUE;">
+      <ToolBar prefHeight="744.0" prefWidth="156.0" style="-fx-background-color: BLUE;">
          <items>
             <Label prefHeight="46.0" prefWidth="113.0" text="RUTINA" textFill="#fff9f9">
                <effect>
@@ -32,25 +32,25 @@
             </Label>
          </items>
       </ToolBar>
-      <TextField fx:id="name" layoutX="139.0" layoutY="40.0" onAction="#datosRutina" promptText="nombre" />
-      <TableView fx:id="tableView" editable="true" layoutX="128.0" layoutY="107.0" prefHeight="205.0" prefWidth="466.0">
+      <TextField fx:id="name" layoutX="194.0" layoutY="215.0" onAction="#dataRoutine" promptText="nombre" />
+      <TableView fx:id="tableView" editable="true" layoutX="318.0" layoutY="285.0" prefHeight="205.0" prefWidth="550.0">
         <columns>
-            <TableColumn fx:id="columnId" onEditStart="#editEjercicio" prefWidth="39.20001220703125" text="id" />
-            <TableColumn fx:id="columnName" onEditStart="#buscarRutinas" prefWidth="265.5999755859375" text="Ejercicio" />
-            <TableColumn fx:id="columnSeries" prefWidth="49.60003662109375" text="Series" />
-          <TableColumn fx:id="columnRepes" prefWidth="47.20001220703125" text="Repes" />
-          <TableColumn fx:id="Anadio" prefWidth="59.20013427734375" text="AÑADIR" />
+            <TableColumn fx:id="columnId" onEditStart="#editExercise" prefWidth="39.20001220703125" text="id" />
+            <TableColumn fx:id="columnName" onEditStart="#findRoutine" prefWidth="265.5999755859375" text="Ejercicio" />
+            <TableColumn fx:id="columnSeries" prefWidth="82.4000244140625" text="Series" />
+          <TableColumn fx:id="columnRepes" prefWidth="65.5999755859375" text="Repes" />
+          <TableColumn fx:id="columnAdd" prefWidth="96.0" text="AÑADIR" />
         </columns>
       </TableView>
-      <Button fx:id="Ejercicios" layoutX="402.0" layoutY="40.0" mnemonicParsing="false" onMouseClicked="#gotoEjercico" prefHeight="46.0" prefWidth="149.0" text="CREAR  EJERCICIO" />
-      <Button fx:id="crearRutina" layoutX="225.0" layoutY="335.0" mnemonicParsing="false" onAction="#guardarRutina" text="CREAR RUTINA" />
-      <ImageView fx:id="flecha" fitHeight="71.0" fitWidth="74.0" layoutX="512.0" layoutY="312.0" onMouseClicked="#gotoMain">
+      <Button fx:id="Ejercicios" layoutX="982.0" layoutY="204.0" mnemonicParsing="false" onMouseClicked="#goToExercise" prefHeight="46.0" prefWidth="149.0" text="CREAR  EJERCICIO" />
+      <Button fx:id="createRoutine" layoutX="239.0" layoutY="575.0" mnemonicParsing="false" onAction="#saveRoutine" text="CREAR RUTINA" />
+      <ImageView fx:id="arrow" fitHeight="71.0" fitWidth="74.0" layoutX="982.0" layoutY="565.0" onMouseClicked="#gotoMain">
          <image>
             <Image url="@flechanegra.png" />
          </image>
       </ImageView>
-      <ComboBox fx:id="diaR" layoutX="138.0" layoutY="74.0" prefWidth="150.0" promptText="Dia" />
-      <ImageView fx:id="basura" fitHeight="71.0" fitWidth="74.0" layoutX="381.0" layoutY="312.0" onMouseClicked="#eliminarEjer">
+      <ComboBox fx:id="dayR" layoutX="565.0" layoutY="215.0" prefWidth="150.0" promptText="Dia" />
+      <ImageView fx:id="delete" fitHeight="71.0" fitWidth="74.0" layoutX="537.0" layoutY="540.0" onMouseClicked="#deleteExercise">
          <image>
             <Image url="@basura.png" />
          </image>
