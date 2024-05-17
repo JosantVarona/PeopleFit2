@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+
+<TableView fx:id="tableView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="301.0" prefWidth="468.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dam.JosantVarona.View.BelongsController">
+  <columns>
+      <TableColumn fx:id="columnid_usario" prefWidth="75.0" text="Usuario" />
+    <TableColumn fx:id="columnname" prefWidth="250.39997100830078" text="Rutina" />
+    <TableColumn fx:id="columnDia" prefWidth="65.60003662109375" text="Dia" />
+      <TableColumn fx:id="columnId" prefWidth="76.800048828125" text="ID_Rutina" />
+  </columns>
+</TableView>
