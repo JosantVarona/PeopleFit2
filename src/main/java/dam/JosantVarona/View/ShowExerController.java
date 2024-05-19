@@ -1,7 +1,10 @@
 package dam.JosantVarona.View;
 
+import dam.JosantVarona.App;
+import dam.JosantVarona.Model.DAO.MultimediaDAO;
 import dam.JosantVarona.Model.DAO.RutinaDAO;
 import dam.JosantVarona.Model.Entity.Exercise;
+import dam.JosantVarona.Model.Entity.Multimedia;
 import dam.JosantVarona.Model.Entity.Routine;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -49,4 +52,22 @@ public class ShowExerController extends Controller implements Initializable {
         columnSeries.setCellValueFactory(Ejercicio -> new SimpleIntegerProperty(Ejercicio.getValue().getSerie()).asObject());
         columnRepes.setCellValueFactory(Ejercicio -> new SimpleIntegerProperty(Ejercicio.getValue().getRepes()).asObject());
     }
+    @FXML
+    private void multiexer() throws IOException {
+        MultimediaDAO m = new MultimediaDAO();
+        Exercise exercise = tableView.getSelectionModel().getSelectedItem();
+        Integer exis= exercise.getId();
+        Multimedia aux = m.findByid(exis);
+        if (aux != null) {
+            if (aux.getType().matches("Foto")) {
+                App.currentController.openModalv(Scenes.SHOWMULTI, "Mostrando", this, exercise);
+            }else {
+                //pantalla de la imagen
+                App.currentController.openModalv(Scenes.SHOWVIDEO,"Mostrar",this,exercise);
+            }
+        }else {
+            AppController.notMultimedia();
+        }
+    }
+
 }

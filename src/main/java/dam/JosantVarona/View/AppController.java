@@ -98,4 +98,17 @@ public class AppController extends Controller implements Initializable {
     private void closeWindow(Event event) {
         ((Node) (event.getSource())).getScene().getWindow().hide();
     }
+
+    public static void Error(){
+        alerta.setContentText("Ha ocurrido un error");
+        alerta.showAndWait();
+    }
+    public static void exisMulti(){
+        alerta.setContentText("Ya tiene Multimedia");
+        alerta.showAndWait();
+    }
+    public static void notMultimedia(){
+        alerta.setContentText("No tiene multimedia");
+        alerta.showAndWait();
+    }
 }

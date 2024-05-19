@@ -44,7 +44,7 @@
       <Pane prefHeight="111.0" prefWidth="1280.0" />
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label prefHeight="26.0" prefWidth="375.0" text="Cambiar nombre:" />
+            <Label prefHeight="26.0" prefWidth="375.0" text="Cambiar nombre:" textFill="WHITE" />
             <TextField fx:id="nombre" prefHeight="26.0" prefWidth="336.0" />
             <Pane prefHeight="200.0" prefWidth="200.0" />
             <Button mnemonicParsing="false" onAction="#updatename" prefHeight="43.0" prefWidth="111.0" text="Guardar" />

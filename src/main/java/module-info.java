@@ -3,6 +3,7 @@ module dam.JosantVarona {
     requires javafx.fxml;
     requires java.xml.bind;
     requires java.sql;
+    requires javafx.media;
 
     opens dam.JosantVarona to javafx.fxml;
     opens dam.JosantVarona.Model.Connection to java.xml.bind;
