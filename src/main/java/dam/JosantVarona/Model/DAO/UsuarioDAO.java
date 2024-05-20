@@ -22,6 +22,12 @@ public class UsuarioDAO  implements DAO<User, String>{
     private final static String FINGBYID = "SELECT u.id,u.cuenta,u.name,u.pass FROM usuario AS u WHERE u.id=?";
 
     @Override
+    /**
+     * Saves a User entity to the database.
+     *
+     * @param entity The User entity to be saved.
+     * @return The saved User entity.
+     */
     public User save(User entity) {
         User result = entity;
         if(entity!=null || entity.getAccount() !=null){
@@ -74,6 +80,13 @@ public class UsuarioDAO  implements DAO<User, String>{
     }
 
     @Override
+    /**
+     * Deletes a User entity from the database.
+     *
+     * @param entity The User entity to be deleted.
+     * @return The deleted User entity.
+     * @throws SQLException If an SQL error occurs during deletion.
+     */
     public User delete(User entity) throws SQLException {
         if(entity==null ) return entity;
         try(PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(DELETE)) {
@@ -84,6 +97,12 @@ public class UsuarioDAO  implements DAO<User, String>{
     }
 
     @Override
+    /**
+     * Finds a User entity by its account identifier.
+     *
+     * @param primaria The account identifier to search for.
+     * @return The User entity associated with the provided account identifier, or a new User if not found.
+     */
     public User findByid(String primaria) {
     User result = new User();
     if (primaria !=null){
@@ -103,6 +122,12 @@ public class UsuarioDAO  implements DAO<User, String>{
     }
     return result;
     }
+    /**
+     * Identifies a User entity by its ID.
+     *
+     * @param id The ID of the User to search for.
+     * @return The User entity associated with the provided ID, or a new User if not found.
+     */
     public User Identify(Integer id) {
         User result = new User();
         if (id !=null){
@@ -128,6 +153,12 @@ public class UsuarioDAO  implements DAO<User, String>{
     public void close() throws IOException {
 
     }
+    /**
+     * Verifies a User entity by its account.
+     *
+     * @param cuenta The account of the User to search for.
+     * @return The User entity associated with the provided account, or null if not found.
+     */
     public User verifi(String cuenta){
         User result=null;
         if (cuenta !=null){
@@ -147,6 +178,13 @@ public class UsuarioDAO  implements DAO<User, String>{
 }
 class UsuarioLazy extends User {
     @Override
+    /**
+     * Retrieves the list of routines associated with the user.
+     * If the routines are not already loaded, it fetches them from the database using the RutinaDAO.
+     *
+     * @return The list of routines associated with the user.
+     */
+
     public List<Routine> getRoutines(){
         if(super.getRoutines()==null){
             setRoutines(RutinaDAO.build().findByUsuario(this));

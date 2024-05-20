@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #011f5d;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dam.JosantVarona.View.MultimediaController">
+   <children>
+      <ImageView fitHeight="200.0" fitWidth="209.0" layoutX="536.0" layoutY="25.0">
+         <image>
+            <Image url="@logo.jpg" />
+         </image>
+      </ImageView>
+      <Button layoutX="245.0" layoutY="652.0" mnemonicParsing="false" onAction="#saveMultimedia" onMouseClicked="#closeWindow" text="IMAGEN" />
+      <Button layoutX="933.0" layoutY="652.0" mnemonicParsing="false" onAction="#saveVideo" onMouseClicked="#closeWindow" text="VIDEO" />
+      <Pane layoutX="634.0" layoutY="213.0" prefHeight="571.0" prefWidth="12.0" style="-fx-background-color: WHITE;" />
+      <TextField fx:id="textPhoto" layoutX="132.0" layoutY="375.0" prefHeight="25.0" prefWidth="287.0" promptText="nombre" />
+      <TextField fx:id="textVideo" layoutX="811.0" layoutY="375.0" prefHeight="25.0" prefWidth="295.0" promptText="nombre" />
+      <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" layoutX="194.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="selectPhoto" layoutX="250.0" layoutY="317.0" mnemonicParsing="false" onAction="#chooseView" text="Elegir imagen" />
+      <Button fx:id="selecVideo" layoutX="919.0" layoutY="317.0" mnemonicParsing="false" onAction="#chooseVideo" text="Elegir Video" />
+      <Label fx:id="URL" layoutX="846.0" layoutY="163.0" prefHeight="100.0" prefWidth="275.0" text="Ruta del video" textFill="WHITE" />
+   </children>
+</Pane>

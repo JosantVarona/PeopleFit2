@@ -52,6 +52,12 @@ public class RoutineController extends Controller implements Initializable {
     private ImageView delete;
 
     private ObservableList<Exercise> ejercicios;
+    /**
+     * Loads all exercises from the database and sets them in the TableView for display.
+     *
+     * @param input The input data, if any, provided when opening the view. Not used in this method.
+     * @throws IOException If an I/O exception occurs while accessing the database or setting the TableView items.
+     */
     @Override
     public void onOpen(Object input) throws IOException {
         List<Exercise> ejercicios = RutinaDAO.build().FindAllEjer();
@@ -63,7 +69,13 @@ public class RoutineController extends Controller implements Initializable {
     public void onClose(Object response) {
 
     }
+    /**
+     * Initializes the TableView and ComboBox controls with appropriate cell value factories and items.
+     * Sets up the columnAdd CheckBoxTableCell for editing and handling changes.
 
+     * @param url            The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resourceBundle The resources used to localize the root object, or null if the root object was not localized.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         columnId.setCellValueFactory(Ejercicio -> new SimpleIntegerProperty(Ejercicio.getValue().getId()).asObject());
@@ -96,17 +108,32 @@ public class RoutineController extends Controller implements Initializable {
         dayR.setItems(FXCollections.observableArrayList("Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo"));
         dayR.setValue("Ninguno");
     }
+
+    /**
+     * return main page
+     * @throws IOException
+     */
     public void gotoMain() throws IOException {
         App.currentController.changeScene(Scenes.BEGINNING,null);
     }
+
+    /**
+     * Change Scene Exercise
+     * @throws IOException
+     */
     public void goToExercise() throws IOException {
         App.currentController.changeScene(Scenes.EXERCISE,null);
     }
+
+    /**
+     * Collect data Routine together your exercise
+     * @return Routine
+     */
     @FXML
     public Routine dataRoutine(){
         Routine routine = new Routine();
         String nameR = name.getText();
-        if (name.getText() !=null) {
+        if (!name.getText().isEmpty() && name.getText().length()<25) {
             Routine aux = new Routine();
             aux.setName(nameR);
             aux.setDay(Dia.valueOf(dayR.getValue().toUpperCase()));
@@ -116,6 +143,12 @@ public class RoutineController extends Controller implements Initializable {
         }
         return routine;
     }
+
+    /**
+     * Selects exercises that have been marked for addition.
+     *
+     * @return An ArrayList containing Exercise objects that have been marked for addition.
+     */
     private ArrayList<Exercise> selectExercise(){
         ArrayList<Exercise> exerciseSelect = new ArrayList<>();
         for (Exercise ejercicio : ejercicios){
@@ -125,6 +158,11 @@ public class RoutineController extends Controller implements Initializable {
         }
         return exerciseSelect;
     }
+
+    /**
+     * Save Routine in database
+     * @throws IOException page Error
+     */
     public void saveRoutine() throws IOException {
         RutinaDAO r = new RutinaDAO();
         Routine rutina = dataRoutine();
@@ -135,11 +173,21 @@ public class RoutineController extends Controller implements Initializable {
             AppController.routineInvaliddata();
         }
     }
+
+    /**
+     * Change Scene Exercise for edit
+     * @throws IOException
+     */
     @FXML
     private void editExercise() throws IOException {
         Exercise ejercicio = tableView.getSelectionModel().getSelectedItem();
         App.currentController.openModalv(Scenes.EXERCISE,"actualizar Exercise",this,ejercicio);
     }
+
+    /**
+     * Delete the exercise select
+     * @throws IOException
+     */
     @FXML
     public void deleteExercise() throws IOException{
         for (Exercise ejercicio : ejercicios){
@@ -153,6 +201,11 @@ public class RoutineController extends Controller implements Initializable {
             }
         }App.currentController.changeScene(Scenes.CREATEROUTINE,null);
     }
+
+    /**
+     * return the that belongs
+     * @throws IOException
+     */
     @FXML
     private void findRoutine() throws IOException {
         Exercise ejercicio = tableView.getSelectionModel().getSelectedItem();

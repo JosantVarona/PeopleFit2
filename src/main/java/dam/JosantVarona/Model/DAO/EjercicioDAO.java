@@ -22,6 +22,11 @@ public class EjercicioDAO implements DAO<Exercise, Integer>{
         conn = ConnectionMariaDB.getConnection();
     }
     @Override
+    /**  Saves an Exercise entity to the database.
+     *
+     * @param entity The Exercise entity to be saved.
+     * @return The saved Exercise entity.
+     */
     public Exercise save(Exercise entity) {
         Exercise result = entity;
             if (entity!=null){
@@ -56,6 +61,12 @@ public class EjercicioDAO implements DAO<Exercise, Integer>{
     }
 
     @Override
+    /** Deletes an Exercise entity from the database
+     *
+     * @param entity The Exercise entity to be deleted.
+     * @return The deleted Exercise entity, or null if deletion fails.
+     * @throws SQLException If an SQL error occurs during deletion.
+      */
     public Exercise delete(Exercise entity) throws SQLException {
         if (entity !=null){
             try (PreparedStatement pst = conn.prepareStatement(DELETE)){
@@ -74,6 +85,11 @@ public class EjercicioDAO implements DAO<Exercise, Integer>{
 
     }
     @Override
+    /** Finds an Exercise entity by its ID.
+     *
+     * @param key The ID of the Exercise entity to find.
+     * @return The Exercise entity with the specified ID, or null if not found.
+     */
     public Exercise findByid(Integer key){
         Exercise result = null;
         if(key != null) {
@@ -97,6 +113,13 @@ public class EjercicioDAO implements DAO<Exercise, Integer>{
         }
         return result;
     }
+
+    /**Finds all routines that include a specific Exercise.
+     *
+     * @param ejercicio The Exercise for which to find routines.
+     * @return A list of Routine objects that include the specified Exercise.
+     *
+     */
     public List<Routine> findRutina (Exercise ejercicio){
         List<Routine> result = new ArrayList<>();
         UsuarioDAO usDAO = new UsuarioDAO();
@@ -120,6 +143,11 @@ public class EjercicioDAO implements DAO<Exercise, Integer>{
 
         return result;
     }
+
+    /** Builds an instance of EjercicioDAO.
+     *
+     * @return An instance of EjercicioDAO.
+     */
     public static EjercicioDAO build(){
         return new EjercicioDAO();
     }

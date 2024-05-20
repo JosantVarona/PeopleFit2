@@ -31,18 +31,41 @@ public class beginningController extends Controller implements Initializable {
     }
 
     @Override
+    /**
+     * nick User
+     */
     public void initialize(URL url, ResourceBundle resourceBundle) {
         perfil.setText(UserSesion.getInstancia().getUsuarioIniciado().getName());
     }
+
+    /**
+     * Change Scene Profile
+     * @throws IOException
+     */
     public void goToProfile() throws IOException{
         App.currentController.changeScene(Scenes.PROFILE,null);
     }
+
+    /**
+     * Change Scene Modify Routine
+     * @throws IOException
+     */
     public void goToModify() throws IOException{
         App.currentController.changeScene(Scenes.MODIFICAR,null);
     }
+
+    /**
+     * Change Scene Create Routine
+     * @throws IOException
+     */
     public void goToCrear() throws IOException{
         App.currentController.changeScene(Scenes.CREATEROUTINE,null);
     }
+
+    /**
+     * Change Scene go Inicio
+     * @throws IOException
+     */
     public void goToInicio() throws IOException{
         UserSesion.getInstancia().logOut();
         App.currentController.changeScene(Scenes.START,null);

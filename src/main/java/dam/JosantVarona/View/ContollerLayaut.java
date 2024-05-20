@@ -23,6 +23,11 @@ public class ContollerLayaut extends Controller implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
+
+    /**
+     * Scene Start
+     * @throws IOException
+     */
     @FXML
     private void goToStart() throws IOException{
         App.currentController.changeScene(Scenes.START,null);

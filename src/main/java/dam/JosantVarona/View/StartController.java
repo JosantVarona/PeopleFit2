@@ -23,15 +23,30 @@ public class StartController extends Controller implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
+
+    /**
+     * Change Scene Login
+     * @throws IOException
+     */
     @FXML
     private void goTologin() throws IOException {
         App.currentController.changeScene(Scenes.LOGIN,null);
     }
+
+    /**
+     * Change Scene Register
+     * @throws IOException
+     */
     @FXML
     private void goToRegister() throws IOException {
 
         App.currentController.changeScene(Scenes.REGISTER,null);
     }
+
+    /**
+     * Change Scene Delete User
+     * @throws IOException
+     */
     @FXML
     private void goToDelete() throws IOException {
 

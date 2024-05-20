@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dam.JosantVarona.View.ExerciseController">
+<VBox fx:id="vBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dam.JosantVarona.View.ExerciseController">
    <children>
       <Pane prefHeight="97.0" prefWidth="600.0" style="-fx-background-color: black;">
          <children>
@@ -48,5 +48,6 @@
             </ImageView>
          </children>
       </HBox>
+      <Button fx:id="multimedia" mnemonicParsing="false" onAction="#Mutimedia" onMouseClicked="#closeWindow" prefHeight="53.0" prefWidth="126.0" text="Agregar plus" />
    </children>
 </VBox>
