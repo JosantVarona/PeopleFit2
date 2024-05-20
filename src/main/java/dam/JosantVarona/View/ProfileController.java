@@ -38,6 +38,12 @@ public class ProfileController extends Controller implements Initializable {
     @FXML
     private TextField nombre;
     private ObservableList<Routine> rutinas;
+    /**
+     * Loads the routines associated with the currently logged-in user and displays them in a TableView.
+     *
+     * @param input The input data, not used in this implementation.
+     * @throws IOException If an I/O error occurs.
+     */
     @Override
     public void onOpen(Object input) throws IOException {
         User usuario = UserSesion.getInstancia().getUsuarioIniciado();
@@ -50,21 +56,41 @@ public class ProfileController extends Controller implements Initializable {
     public void onClose(Object response) {
 
     }
-
+    /**
+     * Initializes the TableView columns with appropriate cell value factories to display routine data.
+     *
+     * @param url            The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resourceBundle The resources used to localize the root object, or null if the root object was not localized.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         columnId.setCellValueFactory(Rutina -> new SimpleIntegerProperty(Rutina.getValue().getId()).asObject());
         Columname.setCellValueFactory(Rutina -> new SimpleStringProperty(Rutina.getValue().getName()));
         columnDia.setCellValueFactory(Rutina -> new SimpleObjectProperty<Dia>(Rutina.getValue().getDay()));
     }
+
+    /**
+     * Change Scene Beginning
+     * @throws IOException
+     */
     public void gotoMain() throws IOException {
         App.currentController.changeScene(Scenes.BEGINNING,null);
     }
+
+    /**
+     * Change Scene Show
+     * going Routine Select
+     * @throws IOException
+     */
     @FXML
     private void exerciseR() throws IOException {
         Routine rutina = tableView.getSelectionModel().getSelectedItem();
         App.currentController.openModalv(Scenes.SHOW,"Mostrando Ejercicos ...",this,rutina);
     }
+
+    /**
+     * Update the Username in database
+     */
     @FXML
     private void updatename(){
         if (User.validarnombre(nombre.getText())) {

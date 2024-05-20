@@ -24,6 +24,12 @@ public class RegsController extends Controller implements Initializable {
     @FXML
     private ImageView arrow;
 
+    /**
+     * Collect data the User
+     * validate data User
+      * @return User
+     * @throws IOException
+     */
     @FXML
     public User collecData() throws IOException{
         User result = null;
@@ -43,6 +49,11 @@ public class RegsController extends Controller implements Initializable {
 
         return result;
     }
+
+    /**
+     * Save data User in database
+     * @throws IOException Error register
+     */
     public void saveData() throws IOException{
         User result = collecData();
         UsuarioDAO uDAO = new UsuarioDAO();
@@ -69,9 +80,20 @@ public class RegsController extends Controller implements Initializable {
 
     }
 
+    /**
+     * return Start
+     * @throws IOException
+     */
     public void goToInicio() throws IOException{
         App.currentController.changeScene(Scenes.START,null);
     }
+
+    /**
+     *
+     Check if the account exists in the database
+     * @param account the user already inserted
+     * @return User
+     */
     private boolean existsAccount(String account){
         boolean result= true;
         UsuarioDAO us = new UsuarioDAO();

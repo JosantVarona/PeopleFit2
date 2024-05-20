@@ -25,6 +25,12 @@ public class ImgController extends Controller implements Initializable {
     @FXML
     private Button delete;
     private Multimedia multimedia;
+    /**
+     * Handles the opening of the view and loads multimedia data associated with the provided Exercise input.
+     *
+     * @param input The Exercise object representing the exercise for which multimedia data needs to be loaded.
+     * @throws IOException If an I/O error occurs.
+     */
     @Override
     public void onOpen(Object input) throws IOException {
         MultimediaDAO m = new MultimediaDAO();
@@ -49,6 +55,11 @@ public class ImgController extends Controller implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
+
+    /**
+     * Delete Photo the Exercise associated
+     * @throws SQLException
+     */
     @FXML
     private void deleteImg() throws SQLException {
         if (multimedia != null) {

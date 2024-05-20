@@ -31,6 +31,13 @@ public class BelongsController extends Controller implements Initializable {
     @FXML
     private TableColumn<Routine, String> columnid_usario;
     private ObservableList<Routine> rutinas;
+    /**
+     * This method is called when the view is opened.
+     * It retrieves the routines associated with the provided exercise and sets them in the table view.
+     *
+     * @param input The input data, which should be an Exercise object.
+     * @throws IOException If an I/O error occurs.
+     */
     @Override
     public void onOpen(Object input) throws IOException {
         Exercise exercise = (Exercise) input;
@@ -44,6 +51,12 @@ public class BelongsController extends Controller implements Initializable {
 
     }
 
+    /**
+     * Initializes the controller after its root element has been completely processed.
+     *
+     * @param url            The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resourceBundle The resources used to localize the root object, or null if the root object was not localized.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         columnId.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getId()).asObject());

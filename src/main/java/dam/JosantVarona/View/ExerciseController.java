@@ -41,6 +41,12 @@ public class ExerciseController extends Controller implements Initializable {
     private Exercise exerciseupdate = null;
     private Integer multi;
 
+    /**
+     * Handles the opening of the view and performs initialization tasks based on the provided input.
+     *
+     * @param input The input object passed to the view when it is opened.
+     * @throws IOException If an I/O error occurs.
+     */
     @Override
     public void onOpen(Object input) throws IOException {
         exerciseupdate = (Exercise) input;
@@ -49,7 +55,6 @@ public class ExerciseController extends Controller implements Initializable {
             volver.setOpacity(0);
         }else {
             vBox.getChildren().remove(multimedia);
-
         }
     }
 
@@ -63,10 +68,18 @@ public class ExerciseController extends Controller implements Initializable {
 
     }
 
+    /**
+     * Change Scene Create Routine
+     * @throws IOException
+     */
     public void gotoRutina() throws IOException {
         App.currentController.changeScene(Scenes.CREATEROUTINE, null);
     }
 
+    /**
+     * Collect data Exercise
+     * @return
+     */
     @FXML
     public Exercise dataExer() {
         Exercise result = null;
@@ -91,6 +104,11 @@ public class ExerciseController extends Controller implements Initializable {
         return result;
     }
 
+    /**
+     * save the Exercise
+     * Change Scene Create Routine
+     * @throws IOException
+     */
     public void saveExer() throws IOException {
         Exercise resulst = dataExer();
         if (resulst != null) {
@@ -103,11 +121,18 @@ public class ExerciseController extends Controller implements Initializable {
         }
     }
 
+    /**
+     * increment repetitions the Exercise
+     */
     public void increcrement() {
         nrepes++;
         rep.setText(nrepes + "");
     }
 
+    /**
+     * diminish the repetitions the Exercise
+     * show screen
+     */
     public void diminish() {
         if (nrepes > 1) {
             nrepes--;
@@ -117,9 +142,14 @@ public class ExerciseController extends Controller implements Initializable {
         rep.setText(nrepes + "");
     }
 
+    /**
+     * Validate name Exercise
+     * @param name the Exercise
+     * @return
+     */
     private boolean validatename(String name) {
         boolean valido = false;
-        if (name.matches("[a-zA-Z\\\\s]+") && name.length()<20) {
+        if (!name.isEmpty() && name.length()<20) {
             valido = true;
         }
         return valido;
@@ -130,6 +160,10 @@ public class ExerciseController extends Controller implements Initializable {
         ((Node) (event.getSource())).getScene().getWindow().hide();
     }
     @FXML
+    /**
+     * Option for the Multimedia for Exercise already inserted
+     * Change Scene Multimedia
+     */
     private void Mutimedia() throws IOException {
         MultimediaDAO m = new MultimediaDAO();
         Integer exis =exerciseupdate.getId();

@@ -22,6 +22,13 @@ public class LoginController extends Controller implements Initializable {
     private PasswordField Texpass;
     @FXML
     private ImageView arrow;
+
+    /**
+     * Collect data for the User
+     * Check if the data is correct
+     * @return User
+     * @throws IOException
+     */
     @FXML
     public User Collectdata() throws IOException{
         User result = null;
@@ -37,6 +44,12 @@ public class LoginController extends Controller implements Initializable {
         }
         return result;
     }
+
+    /**
+     *Controls the login process by collecting user data, verifying it, and redirecting to the appropriate scene.
+     *
+     * @throws IOException If an I/O error occurs.
+     */
     public void controlLogin() throws IOException {
         if(Collectdata() == null) {
             AppController.alerNotFound();
@@ -46,6 +59,12 @@ public class LoginController extends Controller implements Initializable {
 
         }
     }
+
+    /**
+     * Delete User
+     * Entering your account and password
+     * @throws IOException
+     */
     public void deleteUser() throws IOException{
         if(Collectdata() == null) {
             AppController.alerNotFound();
@@ -74,10 +93,21 @@ public class LoginController extends Controller implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
+
+    /**
+     * return to the home screen
+     * @throws IOException
+     */
     public void gotoInicio() throws IOException {
         System.out.println(Scenes.START);
         App.currentController.changeScene(Scenes.START,null);
     }
+
+    /**
+     * Find the Account
+     * @param cuenta User
+     * @return
+     */
     private User searchAccount(String cuenta){
         User result= null;
         UsuarioDAO u = new UsuarioDAO();

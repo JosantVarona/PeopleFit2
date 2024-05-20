@@ -47,6 +47,12 @@ public class UpDateController extends  Controller implements Initializable {
     @FXML
     private ImageView revert;
     private ObservableList<Exercise> ejercicioB;
+    /**
+     * Initializes the view with exercises associated with the provided routine.
+     *
+     * @param input The input object representing the routine to be displayed.
+     * @throws IOException If an I/O error occurs.
+     */
     @Override
     public void onOpen(Object input) throws IOException {
         Routine rutina = (Routine) input;
@@ -62,6 +68,11 @@ public class UpDateController extends  Controller implements Initializable {
 
     }
 
+    /**
+     * Show Exercise for Routine Select
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         columnId.setCellValueFactory(Ejercicio -> new SimpleIntegerProperty(Ejercicio.getValue().getId()).asObject());
@@ -94,6 +105,11 @@ public class UpDateController extends  Controller implements Initializable {
         diaR.setItems(FXCollections.observableArrayList("Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo"));
         diaR.setValue("Ninguno");
     }
+
+    /**
+     * Remove exercise for routine
+     * @throws IOException
+     */
     @FXML
     public void delete() throws IOException {
         for (Exercise ejercicio :ejercicioB){
@@ -103,15 +119,30 @@ public class UpDateController extends  Controller implements Initializable {
         }RutinaDAO.build().asociaEjercicios(IntanceRutina.getInstancia().getRutinaLogin());
         App.currentController.changeScene(Scenes.EDIT,IntanceRutina.getInstancia().getRutinaLogin());
     }
+
+    /**
+     * Change Scene add
+     * @throws IOException
+     */
     @FXML
     public void addExercise() throws IOException {
         App.currentController.openModalv(Scenes.ADD,"Añadir Ejercicios",this,null);
     }
+
+    /**
+     * Change Scene Modificar
+     * Close instace Routine
+     * @throws IOException
+     */
     @FXML
     public void goBack() throws IOException{
         App.currentController.changeScene(Scenes.MODIFICAR,null);
         IntanceRutina.getInstancia().logOut();
     }
+
+    /**
+     * Update the day for Routine
+     */
     @FXML
     public void updateDay(){
         if (Dia.valueOf(diaR.getValue().toUpperCase()) != Dia.NINGUNO){
@@ -119,6 +150,11 @@ public class UpDateController extends  Controller implements Initializable {
             RutinaDAO.build().save(IntanceRutina.getInstancia().getRutinaLogin());
         }
     }
+
+    /**
+     * Update Exercise Routine
+     * @param rutina
+     */
     private void asignar(Routine rutina){
         rutina.setExercises(RutinaDAO.build().findEjercicios(rutina));
     }

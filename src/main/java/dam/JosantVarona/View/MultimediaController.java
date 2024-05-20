@@ -42,6 +42,11 @@ public class MultimediaController extends Controller implements Initializable {
     private File view;
     private String extension;
 
+    /**
+     *
+     * @param input receive an exercise
+     * @throws IOException
+     */
     @Override
     public void onOpen(Object input) throws IOException {
         Exercise exercise = (Exercise) input;
@@ -57,7 +62,13 @@ public class MultimediaController extends Controller implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
-
+    /**
+     * Converts an image file to a byte array.
+     *
+     * @param file The image file to be converted.
+     * @return The byte array representation of the image.
+     * @throws IOException If an I/O error occurs.
+     */
     public static byte[] imagenToBytes(File file) throws IOException{
         FileInputStream fis = new FileInputStream(file);
 
@@ -66,6 +77,9 @@ public class MultimediaController extends Controller implements Initializable {
         fis.close();
         return bytes;
     }
+    /**
+     * Opens a file chooser dialog to select an image file and displays the selected image in an ImageView.
+     */
     @FXML
     private void chooseView(){
         FileChooser file = new FileChooser();
@@ -81,6 +95,9 @@ public class MultimediaController extends Controller implements Initializable {
             imageView.setImage(image);
         }
     }
+    /**
+     * Opens a file chooser dialog to select a video file and sets the selected video file's name to a Text field.
+     */
     @FXML
     private void chooseVideo(){
         FileChooser file = new FileChooser();
@@ -94,30 +111,51 @@ public class MultimediaController extends Controller implements Initializable {
             URL.setText(select.getName());
         }
     }
+
+    /**
+     * Collect Data the Photo
+     * @return photo
+     * @throws IOException
+     */
     private Photos dataPhoto() throws IOException {
         Photos result = null;
         File file = view;
-        byte[] imagen = imagenToBytes(file);
-        String name = textPhoto.getText();
-        String extension = "mutimedia";
-        if (name!=null && file !=null){
-         Photos aux = new Photos(name,extension,exerciseM,imagen);
-         result = aux;
+        if (file !=null) {
+            byte[] imagen = imagenToBytes(file);
+            String name = textPhoto.getText();
+            String extension = "mutimedia";
+            if (!name.isEmpty()) {
+                Photos aux = new Photos(name, extension, exerciseM, imagen);
+                result = aux;
+            }
         }
         return result;
     }
+
+    /**
+     * Collect Data the Video
+     * @return Video
+     * @throws IOException
+     */
     private Video datavideo() throws  IOException{
         Video result = null;
         File file = video;
-        byte[] video= imagenToBytes(file);
-        String name = textVideo.getText();
-        String extension = "multimedia";
-        if (name!=null&& file !=null) {
-            Video aux = new Video(name, extension, exerciseM, video);
-            result = aux;
+        if (file != null) {
+            byte[] video = imagenToBytes(file);
+            String name = textVideo.getText();
+            String extension = "multimedia";
+            if (!name.isEmpty()) {
+                Video aux = new Video(name, extension, exerciseM, video);
+                result = aux;
+            }
         }
         return result;
     }
+
+    /**
+     * Save Photo database
+     * @throws IOException
+     */
     @FXML
     private void saveMultimedia() throws IOException {
         MultimediaDAO mul = new MultimediaDAO();
@@ -128,6 +166,11 @@ public class MultimediaController extends Controller implements Initializable {
             AppController.Error();
         }
     }
+
+    /**
+     * save Video database
+     * @throws IOException
+     */
     @FXML
     private void saveVideo() throws IOException {
         MultimediaDAO mul = new MultimediaDAO();

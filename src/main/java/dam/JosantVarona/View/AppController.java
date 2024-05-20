@@ -38,6 +38,14 @@ public class AppController extends Controller implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
+
+    /**
+     * Loads an FXML file and its associated controller.
+     *
+     * @param scenes The enumeration value representing the scene to load.
+     * @return The View object containing the loaded scene and its controller.
+     * @throws IOException If an error occurs while loading the FXML file.
+     */
     public static View loadFXML(Scenes scenes) throws IOException {
         String url = scenes.getUrl();
         FXMLLoader loader = new FXMLLoader(App.class.getResource(url));
@@ -48,15 +56,36 @@ public class AppController extends Controller implements Initializable {
         view.controller=c;
         return view;
     }
+
+    /**
+     * Close app
+     */
     private void CloseApp(){
         System.exit(0);
     }
+
+    /**
+     * @param scenes Load the FXML file for the specified scene and retrieve the associated controller
+     *               Set the root node of the loaded FXML file as the center of the border pane
+     *               Set the controller of the loaded FXML file as the center controller
+     * @param data Call the onOpen method of the controller and pass the data object
+     * @throws IOException
+     */
     public void changeScene(Scenes scenes, Object data) throws IOException{
         View view = loadFXML(scenes);
         borderPane.setCenter(view.scene);
         this.centerController = view.controller;
         this.centerController.onOpen(data);
     }
+    /**
+     * Opens a modal dialog with the specified scene.
+     *
+     * @param scenes The scene to be displayed in the modal dialog.
+     * @param tilte The title of the modal dialog window.
+     * @param parent The parent controller (if any) of the modal dialog.
+     * @param data The data object to be passed to the modal dialog controller.
+     * @throws IOException If an I/O error occurs during scene loading.
+     */
     public void openModalv(Scenes scenes, String tilte, Controller parent, Object data) throws IOException {
         View view = loadFXML(scenes);
         Stage stage = new Stage();

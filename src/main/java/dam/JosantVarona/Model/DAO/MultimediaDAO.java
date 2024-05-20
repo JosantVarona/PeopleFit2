@@ -19,6 +19,12 @@ public class MultimediaDAO implements DAO<Multimedia, Integer>{
         conn = ConnectionMariaDB.getConnection();
     }
     @Override
+    /**
+     *Saves a Multimedia entity to the database.
+     *
+     *  @param entity The Multimedia entity to be saved.
+     *  @return The saved Multimedia entity.
+     */
     public Multimedia save(Multimedia entity) {
         Multimedia result = entity;
        if (entity != null){
@@ -61,6 +67,9 @@ public class MultimediaDAO implements DAO<Multimedia, Integer>{
     }
 
     @Override
+    /**
+     * Delete Multimedia from the database
+     */
     public Multimedia delete(Multimedia entity) throws SQLException {
         if (entity !=null){
             try (PreparedStatement pst = conn.prepareStatement(DELETE)){
@@ -75,6 +84,12 @@ public class MultimediaDAO implements DAO<Multimedia, Integer>{
     }
 
     @Override
+    /**
+     * Finds a Multimedia entity by its ID.
+     *
+     * @param primaria The ID of the Multimedia entity to find.
+     * @return The Multimedia entity with the specified ID, or null if not found.
+     */
     public Multimedia findByid(Integer primaria) {
         Multimedia result = null;
         if (primaria !=null){
@@ -97,6 +112,10 @@ public class MultimediaDAO implements DAO<Multimedia, Integer>{
     }
 
     @Override
+    /**
+     * Closes any resources associated with this DAO.
+     * Since this DAO doesn't manage any external resources, this method does nothing.
+     */
     public void close() throws IOException {
 
     }

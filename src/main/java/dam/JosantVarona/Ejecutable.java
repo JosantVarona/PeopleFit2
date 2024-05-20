@@ -1,6 +1,6 @@
 package dam.JosantVarona;
 
-public class Play {
+public class Ejecutable {
     public static void main(String[] args) {
         App.main(args);
     }

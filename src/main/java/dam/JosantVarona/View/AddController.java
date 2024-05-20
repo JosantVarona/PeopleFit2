@@ -41,6 +41,14 @@ public class AddController extends Controller implements Initializable {
 
 
     private ObservableList<Exercise> exercises;
+    /**
+     * Handles the actions to be performed when the view is opened.
+     * It fetches all exercises from the database, removes the exercises already assigned to the current routine,
+     * and sets the remaining exercises to be displayed in the TableView.
+     *
+     * @param input The input object, which is not used in this method.
+     * @throws IOException If an I/O error occurs during the process.
+     */
     @Override
     public void onOpen(Object input) throws IOException {
         List<Exercise> ejercicios = RutinaDAO.build().FindAllEjer();
@@ -55,7 +63,13 @@ public class AddController extends Controller implements Initializable {
     public void onClose(Object response) {
 
     }
-
+    /**
+     * Initializes the TableView columns with appropriate cell value factories and cell factories.
+     * Sets up the columns to display exercise details and allows editing the "Add" column with a CheckBox.
+     *
+     * @param url The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resourceBundle The resources used to localize the root object, or null if the root object was not localized.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         columnId.setCellValueFactory(Ejercicio -> new SimpleIntegerProperty(Ejercicio.getValue().getId()).asObject());
@@ -86,6 +100,14 @@ public class AddController extends Controller implements Initializable {
         });
         columnadd.setEditable(true);
     }
+    /**
+     * Adds selected exercises to the current routine and updates the database.
+     * If an exercise is marked as "Add" (checkbox selected), it is added to the current routine.
+     * Then, the routine is updated in the database.
+     * Finally, the scene is changed to the edit scene.
+     *
+     * @throws IOException If an I/O error occurs during scene change.
+     */
     @FXML
     public void addExer() throws IOException {
         for (Exercise ejercicio : exercises){
@@ -96,6 +118,9 @@ public class AddController extends Controller implements Initializable {
         App.currentController.changeScene(Scenes.EDIT,IntanceRutina.getInstancia().getRutinaLogin());
     }
     @FXML
+    /**
+     * Event close window
+     */
     private void closeWindow(Event event){
         ((Node)(event.getSource())).getScene().getWindow().hide();
     }

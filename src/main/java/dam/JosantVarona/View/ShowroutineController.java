@@ -43,6 +43,13 @@ public class ShowroutineController extends Controller implements Initializable {
     @FXML
     private Button Borra;
     private ObservableList<Routine> rutinas;
+
+    /**
+     * Initializes the view with routines associated with the logged-in user.
+     *
+     * @param input The input object (not used in this method).
+     * @throws IOException If an I/O error occurs.
+     */
     @Override
     public void onOpen(Object input) throws IOException {
         User usuario = UserSesion.getInstancia().getUsuarioIniciado();
@@ -56,6 +63,12 @@ public class ShowroutineController extends Controller implements Initializable {
 
     }
 
+    /**
+     * Show Routine fo User
+     * you can change the name
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         columnId.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getId()).asObject());
@@ -66,7 +79,7 @@ public class ShowroutineController extends Controller implements Initializable {
             if (event.getNewValue()== event.getOldValue()){
                 return;
             }
-            if (event.getNewValue().matches("^[a-zA-Z]{1,25}$")){
+            if (event.getNewValue().matches(".{1,25}")){
                 Routine rutina = event.getRowValue();
                 rutina.setName(event.getNewValue());
                 RutinaDAO.build().save(rutina);
@@ -98,14 +111,29 @@ public class ShowroutineController extends Controller implements Initializable {
         });
         Eliminar.setEditable(true);
     }
+
+    /**
+     * return Main page
+     * @throws IOException
+     */
     public void gotoMain() throws IOException {
         App.currentController.changeScene(Scenes.BEGINNING,null);
     }
+
+    /**
+     * Change Scene Edit with routine select
+     * @throws IOException
+     */
     @FXML
     private void agregarEjer() throws IOException {
         Routine rutina = tableView.getSelectionModel().getSelectedItem();
        App.currentController.changeScene(Scenes.EDIT,rutina);
     }
+
+    /**
+     * Delete routine database
+     * @throws IOException
+     */
     @FXML
     private void Eliminar() throws IOException {
         for (Routine rutina : rutinas){

@@ -2,6 +2,9 @@ package dam.JosantVarona.View;
 
 import dam.JosantVarona.Model.Entity.Photos;
 
+/**
+ * Change Scene
+ */
 public enum Scenes {
     ROOT("View/layaut.fxml"),
     START("View/INICIO.fxml"),

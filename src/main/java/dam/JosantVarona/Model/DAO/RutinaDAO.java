@@ -30,6 +30,12 @@ public class RutinaDAO implements DAO<Routine,Integer> {
     }
 
     @Override
+    /**
+     * Saves a Routine entity to the database.
+     *
+     * @param entity The Routine entity to be saved.
+     * @return The saved Routine entity.
+     */
     public Routine save(Routine entity) {
         Routine result = entity;
         if (entity==null) return result;
@@ -72,6 +78,11 @@ public class RutinaDAO implements DAO<Routine,Integer> {
 
         return result;
     }
+    /**
+     * Associates exercises with a Routine entity.
+     *
+     * @param entity The Routine entity to associate exercises with.
+     */
     public void asociaEjercicios(Routine entity){
         //borrando todos los que tuviera antes
         try (PreparedStatement pst = conn.prepareStatement(DELETEALLEJ)){
@@ -97,6 +108,13 @@ public class RutinaDAO implements DAO<Routine,Integer> {
     }
 
     @Override
+    /**
+     * Deletes a Routine entity from the database.
+     *
+     * @param entity The Routine entity to be deleted.
+     * @return The deleted Routine entity, or null if deletion fails.
+     * @throws SQLException If an SQL error occurs during deletion.
+     */
     public Routine delete(Routine entity) throws SQLException {
         if (entity !=null){
             try (PreparedStatement pst = conn.prepareStatement(DELETE)){
@@ -111,6 +129,12 @@ public class RutinaDAO implements DAO<Routine,Integer> {
     }
 
     @Override
+    /**
+     * Finds a Routine entity by its ID.
+     *
+     * @param primaria The ID of the Routine entity to find.
+     * @return The Routine entity with the specified ID, or null if not found.
+     */
     public Routine findByid(Integer primaria) {
         Routine result = null;
         UsuarioDAO usDAO = new UsuarioDAO();
@@ -141,7 +165,11 @@ public class RutinaDAO implements DAO<Routine,Integer> {
     public void close() throws IOException {
 
     }
-
+    /**
+     * Retrieves all Exercise entities from the database.
+     *
+     * @return A list of all Exercise entities.
+     */
     public List<Exercise> FindAllEjer() {
         List<Exercise> result = new ArrayList<>();
         try (PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(FINDALL)) {
@@ -161,6 +189,12 @@ public class RutinaDAO implements DAO<Routine,Integer> {
         }
         return result;
     }
+    /**
+     * Finds all routines associated with a specific user.
+     *
+     * @param u The user for which to find routines.
+     * @return A list of Routine objects associated with the specified user.
+     */
     public List<Routine> findByUsuario (User u){
         List<Routine> result = new ArrayList<>();
         if(u!=null || u.getId()!=null){
@@ -183,6 +217,12 @@ public class RutinaDAO implements DAO<Routine,Integer> {
         }
         return result;
     }
+    /**
+     * Finds all exercises associated with a specific routine.
+     *
+     * @param rutina The routine for which to find exercises.
+     * @return A list of Exercise objects associated with the specified routine.
+     */
     public List<Exercise> findEjercicios (Routine rutina){
         List<Exercise> result = new ArrayList<>();
         if (rutina != null){
@@ -205,6 +245,10 @@ public class RutinaDAO implements DAO<Routine,Integer> {
 
         return result;
     }
+    /** Builds an instance of RutinaDAO.
+     *
+     * @return An instance of RutinaDAO.
+     */
     public static RutinaDAO build(){
         return new RutinaDAO();
     }
